@@ -13,7 +13,6 @@
         }
 
         :root {
-            /* Colores claros (default) */
             --bg-body: #f0f4fc;
             --bg-body-gradient: linear-gradient(145deg, #f0f4fc 0%, #dce4f0 100%);
             --bg-container: rgba(255, 255, 255, 0.82);
@@ -82,7 +81,6 @@
             --border-audio: #c8d4e6;
         }
 
-        /* ===== MODO OSCURO ===== */
         [data-theme="dark"] {
             --bg-body: #0d111a;
             --bg-body-gradient: linear-gradient(145deg, #0d111a 0%, #151e2b 100%);
@@ -260,40 +258,52 @@
         .audio-player-container {
             background: var(--bg-audio);
             border-radius: 1.5rem;
-            padding: 1.2rem 1.8rem;
-            margin-bottom: 2rem;
+            padding: 1rem 1.5rem;
+            margin-bottom: 1.5rem;
             border: 2px solid var(--border-audio);
             box-shadow: var(--shadow-card);
             transition: background 0.3s, border-color 0.3s;
             display: flex;
             flex-wrap: wrap;
             align-items: center;
-            gap: 1rem;
+            gap: 0.8rem;
+        }
+
+        .audio-player-container .audio-label {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            min-width: 100px;
+            transition: color 0.2s;
+        }
+
+        .audio-player-container .audio-label small {
+            font-weight: 400;
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            display: block;
         }
 
         .audio-controls {
             display: flex;
             align-items: center;
-            gap: 0.8rem;
+            gap: 0.6rem;
             flex-wrap: wrap;
             flex: 1;
-        }
-
-        .audio-label {
-            font-size: 1.2rem;
         }
 
         .audio-upload-btn {
             background: var(--bg-btn-check);
             border: 2px solid var(--border-btn-check);
-            padding: 0.5rem 1.5rem;
+            padding: 0.4rem 1.2rem;
             border-radius: 40px;
             font-weight: 600;
             color: var(--text-btn-check);
             cursor: pointer;
             transition: all 0.2s;
             font-family: inherit;
-            font-size: 0.95rem;
+            font-size: 0.85rem;
+            white-space: nowrap;
         }
 
         .audio-upload-btn:hover {
@@ -303,28 +313,28 @@
 
         .audio-file-name {
             color: var(--text-muted);
-            font-size: 0.9rem;
+            font-size: 0.8rem;
             font-weight: 400;
-            padding: 0.2rem 0.8rem;
+            padding: 0.15rem 0.6rem;
             background: var(--bg-number);
             border-radius: 30px;
             transition: background 0.2s, color 0.2s;
             flex: 1;
-            min-width: 150px;
+            min-width: 120px;
         }
 
         .audio-player-wrapper {
             display: flex;
             align-items: center;
-            gap: 0.8rem;
+            gap: 0.6rem;
             flex: 1;
-            min-width: 200px;
+            min-width: 180px;
         }
 
         .audio-player-wrapper audio {
             width: 100%;
-            max-width: 300px;
-            height: 40px;
+            max-width: 250px;
+            height: 36px;
             border-radius: 40px;
             background: var(--bg-word-grid);
             transition: background 0.3s;
@@ -333,11 +343,11 @@
         .audio-remove-btn {
             background: transparent;
             border: 1px solid var(--border-footer-btn);
-            padding: 0.3rem 1rem;
+            padding: 0.2rem 0.8rem;
             border-radius: 40px;
             color: var(--text-footer-btn);
             cursor: pointer;
-            font-size: 0.8rem;
+            font-size: 0.75rem;
             transition: all 0.2s;
             font-family: inherit;
             white-space: nowrap;
@@ -747,12 +757,16 @@
                 font-size: 0.9rem !important;
             }
             .audio-player-container {
-                padding: 1rem;
+                padding: 0.8rem 1rem;
                 flex-direction: column;
                 align-items: stretch;
             }
             .audio-player-wrapper audio {
                 max-width: 100%;
+            }
+            .audio-player-container .audio-label {
+                min-width: unset;
+                font-size: 1rem;
             }
         }
 
@@ -785,27 +799,30 @@
         </div>
     </div>
 
-    <!-- ===== REPRODUCTOR DE AUDIO CON AUDIO POR DEFECTO + BOTÓN SUBIR ===== -->
-    <div class="audio-player-container" id="audioContainer">
+    <!-- ================================================== -->
+    <!-- ===== REPRODUCTOR 1: VOCABULARIO (ARRIBA) ===== -->
+    <!-- ================================================== -->
+    <div class="audio-player-container" id="audioContainerVocab">
+        <div class="audio-label">
+            📚 Vocabulario
+            <small>Palabras sueltas</small>
+        </div>
         <div class="audio-controls">
-            <span class="audio-label">🎵</span>
-            <label for="audioUpload" class="audio-upload-btn">
-                📁 Subir audio
-            </label>
-            <input type="file" id="audioUpload" accept=".mp3,.wav,.m4a,.ogg" style="display: none;">
-            <span class="audio-file-name" id="audioFileName">🎵 Audio de la lección (por defecto)</span>
+            <label for="audioUploadVocab" class="audio-upload-btn">📁 Subir audio</label>
+            <input type="file" id="audioUploadVocab" accept=".mp3,.wav,.m4a,.ogg" style="display: none;">
+            <span class="audio-file-name" id="audioFileNameVocab">🎵 Audio por defecto</span>
         </div>
         <div class="audio-player-wrapper">
-            <audio id="audioPlayer" controls>
-                <source src="audio/leccion1.mp3" type="audio/mpeg">
-                <source src="audio/leccion1.ogg" type="audio/ogg">
-                Tu navegador no soporta el reproductor de audio.
+            <audio id="audioPlayerVocab" controls>
+                <source src="audio/vocabulario.mp3" type="audio/mpeg">
+                <source src="audio/vocabulario.ogg" type="audio/ogg">
+                Tu navegador no soporta el reproductor.
             </audio>
-            <button class="audio-remove-btn" id="removeAudioBtn">❌ Quitar</button>
+            <button class="audio-remove-btn" id="removeAudioBtnVocab">❌ Quitar</button>
         </div>
     </div>
 
-    <!-- ===== VOCABULARIO ===== -->
+    <!-- ===== VOCABULARIO (GRID DE PALABRAS) ===== -->
     <div class="word-grid">
         <div class="word-item"><span class="en">I</span> <span class="sep">-</span> <span class="es">yo</span></div>
         <div class="word-item"><span class="en">You</span> <span class="sep">-</span> <span class="es">tú / usted</span></div>
@@ -829,11 +846,36 @@
         <div class="word-item"><span class="en">to learn</span> <span class="sep">-</span> <span class="es">aprender</span></div>
     </div>
 
+    <!-- ================================================== -->
+    <!-- ===== REPRODUCTOR 2: FRASES (ABAJO) ===== -->
+    <!-- ================================================== -->
+    <div class="audio-player-container" id="audioContainerFrases">
+        <div class="audio-label">
+            🗣️ Frases
+            <small>Oraciones completas</small>
+        </div>
+        <div class="audio-controls">
+            <label for="audioUploadFrases" class="audio-upload-btn">📁 Subir audio</label>
+            <input type="file" id="audioUploadFrases" accept=".mp3,.wav,.m4a,.ogg" style="display: none;">
+            <span class="audio-file-name" id="audioFileNameFrases">🎵 Audio por defecto</span>
+        </div>
+        <div class="audio-player-wrapper">
+            <audio id="audioPlayerFrases" controls>
+                <source src="audio/frases.mp3" type="audio/mpeg">
+                <source src="audio/frases.ogg" type="audio/ogg">
+                Tu navegador no soporta el reproductor.
+            </audio>
+            <button class="audio-remove-btn" id="removeAudioBtnFrases">❌ Quitar</button>
+        </div>
+    </div>
+
+    <!-- ===== TÍTULO FRASES ===== -->
     <div class="section-title">
         🗣️ Frases para traducir
         <span>12 oraciones</span>
     </div>
 
+    <!-- ===== TARJETAS DE EJERCICIOS ===== -->
     <div class="card-grid" id="exerciseContainer">
         <!-- Las tarjetas se generan con JavaScript -->
     </div>
@@ -850,24 +892,7 @@
         </div>
     </div>
 </div>
- <!-- ===== REPRODUCTOR DE AUDIO CON AUDIO POR DEFECTO + BOTÓN SUBIR ===== -->
-    <div class="audio-player-container" id="audioContainer">
-        <div class="audio-controls">
-            <span class="audio-label">🎵</span>
-            <label for="audioUpload" class="audio-upload-btn">
-                📁 Subir audio
-            </label>
-            <input type="file" id="audioUpload" accept=".mp3,.wav,.m4a,.ogg" style="display: none;">
-            <span class="audio-file-name" id="audioFileName">🎵 Audio de la lección (por defecto)</span>
-        </div>
-        <div class="audio-player-wrapper">
-            <audio id="audioPlayer" controls>
-                <source src="audio/leccion1.mp3" type="audio/mpeg">
-                <source src="audio/leccion1.ogg" type="audio/ogg">
-                Tu navegador no soporta el reproductor de audio.
-            </audio>
-            <button class="audio-remove-btn" id="removeAudioBtn">❌ Quitar</button>
-        </div>
+
 <script>
     (function() {
         // ===== FRASES DE LA LECCIÓN 1 =====
@@ -896,14 +921,73 @@
         const clearAllBtn = document.getElementById('clearAllBtn');
         const showAllBtn = document.getElementById('showAllAnswersBtn');
 
-        // ===== REFERENCIAS DEL AUDIO =====
-        const audioUpload = document.getElementById('audioUpload');
-        const audioPlayer = document.getElementById('audioPlayer');
-        const audioFileName = document.getElementById('audioFileName');
-        const removeAudioBtn = document.getElementById('removeAudioBtn');
-
         let correctCount = 0;
         let cardStates = new Array(sentences.length).fill(false);
+
+        // ===== FUNCIÓN PARA CREAR REPRODUCTOR =====
+        function crearReproductor(uploadId, playerId, fileNameId, removeId, audioDefault) {
+            const upload = document.getElementById(uploadId);
+            const player = document.getElementById(playerId);
+            const fileName = document.getElementById(fileNameId);
+            const removeBtn = document.getElementById(removeId);
+
+            upload.addEventListener('change', function(e) {
+                const file = e.target.files[0];
+                
+                if (!file) {
+                    fileName.textContent = '🎵 Audio por defecto';
+                    player.innerHTML = audioDefault;
+                    player.load();
+                    return;
+                }
+
+                if (!file.type.startsWith('audio/')) {
+                    alert('⚠️ Selecciona un archivo de audio (MP3, WAV, M4A, OGG)');
+                    this.value = '';
+                    fileName.textContent = '🎵 Audio por defecto';
+                    return;
+                }
+
+                const tamaño = (file.size / 1024 / 1024).toFixed(2);
+                fileName.textContent = `🎵 ${file.name} (${tamaño} MB)`;
+
+                const url = URL.createObjectURL(file);
+                player.innerHTML = `<source src="${url}" type="${file.type}">`;
+                player.load();
+                
+                console.log(`✅ Audio cargado en ${playerId}:`, file.name);
+            });
+
+            removeBtn.addEventListener('click', function() {
+                player.pause();
+                upload.value = '';
+                fileName.textContent = '🎵 Audio por defecto';
+                player.innerHTML = audioDefault;
+                player.load();
+                console.log(`🔄 Audio restaurado en ${playerId}`);
+            });
+        }
+
+        // ===== INICIALIZAR REPRODUCTORES =====
+        crearReproductor(
+            'audioUploadVocab',
+            'audioPlayerVocab',
+            'audioFileNameVocab',
+            'removeAudioBtnVocab',
+            `<source src="audio/vocabulario.mp3" type="audio/mpeg">
+             <source src="audio/vocabulario.ogg" type="audio/ogg">
+             Tu navegador no soporta el reproductor.`
+        );
+
+        crearReproductor(
+            'audioUploadFrases',
+            'audioPlayerFrases',
+            'audioFileNameFrases',
+            'removeAudioBtnFrases',
+            `<source src="audio/frases.mp3" type="audio/mpeg">
+             <source src="audio/frases.ogg" type="audio/ogg">
+             Tu navegador no soporta el reproductor.`
+        );
 
         // ===== FUNCIÓN PARA RENDERIZAR TARJETAS =====
         function renderCards() {
@@ -946,7 +1030,6 @@
                 hintSpan.className = 'answer-hint empty';
                 hintSpan.textContent = '⬤ esperando...';
 
-                // --- Verificar ---
                 function verifyAnswer() {
                     const userAnswer = input.value.trim();
                     const correct = item.english;
@@ -1082,66 +1165,6 @@
             updateProgress();
         }
 
-        // ===== REPRODUCTOR DE AUDIO - CON AUDIO POR DEFECTO + SUBIR =====
-        // El audio por defecto ya está en el HTML con <source>
-        // El botón "Subir audio" reemplaza el src con el archivo seleccionado
-
-        audioUpload.addEventListener('change', function(e) {
-            const file = e.target.files[0];
-            
-            if (!file) {
-                audioFileName.textContent = '🎵 Audio de la lección (por defecto)';
-                // Restaurar audio por defecto
-                audioPlayer.innerHTML = `
-                    <source src="audio/leccion1.mp3" type="audio/mpeg">
-                    <source src="audio/leccion1.ogg" type="audio/ogg">
-                    Tu navegador no soporta el reproductor de audio.
-                `;
-                audioPlayer.load();
-                return;
-            }
-
-            // Verificar que sea un archivo de audio
-            if (!file.type.startsWith('audio/')) {
-                alert('⚠️ Por favor selecciona un archivo de audio (MP3, WAV, M4A, OGG)');
-                this.value = '';
-                audioFileName.textContent = '🎵 Audio de la lección (por defecto)';
-                return;
-            }
-
-            // Mostrar nombre del archivo
-            const tamaño = (file.size / 1024 / 1024).toFixed(2);
-            audioFileName.textContent = `🎵 ${file.name} (${tamaño} MB)`;
-
-            // Crear URL del objeto (SIN Base64)
-            const url = URL.createObjectURL(file);
-            
-            // Reemplazar el contenido del audio con el archivo subido
-            audioPlayer.innerHTML = `<source src="${url}" type="${file.type}">`;
-            audioPlayer.load();
-            
-            console.log('✅ Audio cargado sin Base64:', file.name);
-            console.log('📦 Tamaño:', tamaño, 'MB');
-            console.log('🎵 Formato:', file.type);
-        });
-
-        // Quitar el audio (volver al audio por defecto)
-        removeAudioBtn.addEventListener('click', function() {
-            audioPlayer.pause();
-            audioUpload.value = '';
-            audioFileName.textContent = '🎵 Audio de la lección (por defecto)';
-            
-            // Restaurar audio por defecto
-            audioPlayer.innerHTML = `
-                <source src="audio/leccion1.mp3" type="audio/mpeg">
-                <source src="audio/leccion1.ogg" type="audio/ogg">
-                Tu navegador no soporta el reproductor de audio.
-            `;
-            audioPlayer.load();
-            
-            console.log('🔄 Audio restaurado al predeterminado');
-        });
-
         // ===== MODO OSCURO / CLARO =====
         function setTheme(theme) {
             document.documentElement.setAttribute('data-theme', theme);
@@ -1190,7 +1213,7 @@
         });
 
         console.log('✅ Lección 1 cargada con 12 frases.');
-        console.log('✅ Reproductor con audio por defecto + botón subir (sin Base64).');
+        console.log('✅ Reproductor de Vocabulario (arriba) y Frases (abajo).');
         console.log('✅ Botón "Siguiente" con onclick a leccion2.html');
     })();
 </script>
