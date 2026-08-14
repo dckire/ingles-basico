@@ -1,0 +1,1198 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio de Inglés · Lección 1</title>
+    <style>
+        /* ===== CSS VARIABLES ===== */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        :root {
+            /* Colores claros (default) */
+            --bg-body: #f0f4fc;
+            --bg-body-gradient: linear-gradient(145deg, #f0f4fc 0%, #dce4f0 100%);
+            --bg-container: rgba(255, 255, 255, 0.82);
+            --border-container: rgba(255, 255, 255, 0.6);
+            --shadow-container: 0 20px 40px -12px rgba(0, 20, 40, 0.30), 0 8px 24px -6px rgba(0, 0, 0, 0.08);
+            --text-primary: #1a2639;
+            --text-secondary: #3e4c66;
+            --text-muted: #4a5d7a;
+            --bg-word-grid: #dce4f0cc;
+            --border-word-grid: #ffffffb3;
+            --bg-word-item: #ffffff;
+            --text-word-item: #0f1a2f;
+            --border-word-item: #c8d4e6;
+            --bg-card: #ffffff;
+            --border-card: #e6edf8;
+            --shadow-card: 0 4px 12px rgba(0, 20, 30, 0.06);
+            --bg-card-hover: #f8fbff;
+            --border-card-hover: #b0c8e6;
+            --shadow-card-hover: 0 6px 18px rgba(26, 67, 113, 0.10);
+            --bg-number: #dfeaf9;
+            --text-number: #2e4a72;
+            --bg-spanish: #f0f6ff;
+            --border-spanish: #7a96c4;
+            --text-spanish: #1a2842;
+            --bg-prompt: #e8eefa;
+            --text-prompt: #2e4466;
+            --border-input: #d0dcee;
+            --bg-input: #ffffff;
+            --text-input: #0a1422;
+            --border-input-focus: #4f7bb3;
+            --shadow-input-focus: #b3ccf0;
+            --bg-btn-check: #eef3fc;
+            --border-btn-check: #bfd3ec;
+            --text-btn-check: #1e385a;
+            --bg-btn-check-hover: #d7e5fc;
+            --border-btn-check-hover: #6d93c9;
+            --bg-answer: #dce9fc;
+            --border-answer: #5380b3;
+            --text-answer: #1b4b6e;
+            --bg-answer-empty: #f0f4fc;
+            --border-answer-empty: #b3c7e0;
+            --text-answer-empty: #4a6285;
+            --border-footer: #c7d7ed;
+            --text-footer: #3b4e6b;
+            --bg-footer-btn: transparent;
+            --border-footer-btn: #9bb3d3;
+            --text-footer-btn: #1f3b5e;
+            --bg-footer-btn-hover: #d3e2fb;
+            --border-footer-btn-hover: #617fa8;
+            --bg-clear: #edf2fa;
+            --text-correct: #1f7a3e;
+            --text-wrong: #b53a3a;
+            --text-warning: #a05a2c;
+            --text-reveal: #1f4a7a;
+            --bg-theme-btn: #ffffff;
+            --border-theme-btn: #c8d4e6;
+            --text-theme-btn: #1a2639;
+            --bg-theme-btn-hover: #e8eefa;
+            --bg-next-btn: #2a4a7a;
+            --text-next-btn: #ffffff;
+            --bg-next-btn-hover: #1f3a6a;
+            --bg-next-success: #1f7a3e;
+            --bg-next-success-hover: #166a32;
+            --bg-next-completed: #4a7a3a;
+            --bg-audio: #ffffff;
+            --border-audio: #c8d4e6;
+        }
+
+        /* ===== MODO OSCURO ===== */
+        [data-theme="dark"] {
+            --bg-body: #0d111a;
+            --bg-body-gradient: linear-gradient(145deg, #0d111a 0%, #151e2b 100%);
+            --bg-container: rgba(20, 26, 40, 0.92);
+            --border-container: rgba(255, 255, 255, 0.06);
+            --shadow-container: 0 20px 40px -12px rgba(0, 0, 0, 0.8), 0 8px 24px -6px rgba(0, 0, 0, 0.6);
+            --text-primary: #e8edf5;
+            --text-secondary: #a8bcd8;
+            --text-muted: #94aac9;
+            --bg-word-grid: #1f2a3eb3;
+            --border-word-grid: #374a66;
+            --bg-word-item: #1a2336;
+            --text-word-item: #dce4f0;
+            --border-word-item: #33455f;
+            --bg-card: #1a2336;
+            --border-card: #2a3a54;
+            --shadow-card: 0 4px 12px rgba(0, 0, 0, 0.4);
+            --bg-card-hover: #232f48;
+            --border-card-hover: #3e5678;
+            --shadow-card-hover: 0 6px 18px rgba(0, 0, 0, 0.6);
+            --bg-number: #263a58;
+            --text-number: #aec6e8;
+            --bg-spanish: #1f2d48;
+            --border-spanish: #4a6a94;
+            --text-spanish: #e4ecf8;
+            --bg-prompt: #1a263e;
+            --text-prompt: #b2c8e8;
+            --border-input: #334a6a;
+            --bg-input: #111b2c;
+            --text-input: #eef3fc;
+            --border-input-focus: #5a82be;
+            --shadow-input-focus: #1e3a66;
+            --bg-btn-check: #243a58;
+            --border-btn-check: #3a5780;
+            --text-btn-check: #c8daf5;
+            --bg-btn-check-hover: #2f4a72;
+            --border-btn-check-hover: #5a82be;
+            --bg-answer: #1a2e4e;
+            --border-answer: #3e6e9e;
+            --text-answer: #c0d6f5;
+            --bg-answer-empty: #182237;
+            --border-answer-empty: #2e466a;
+            --text-answer-empty: #7a94c0;
+            --border-footer: #2a3e5e;
+            --text-footer: #a8bcd8;
+            --bg-footer-btn: transparent;
+            --border-footer-btn: #3a5a80;
+            --text-footer-btn: #c0d4f0;
+            --bg-footer-btn-hover: #223a60;
+            --border-footer-btn-hover: #5a7aaa;
+            --bg-clear: #1a2a48;
+            --text-correct: #6dca8a;
+            --text-wrong: #e07070;
+            --text-warning: #dba15a;
+            --text-reveal: #80ade6;
+            --bg-theme-btn: #1a2336;
+            --border-theme-btn: #33455f;
+            --text-theme-btn: #dce4f0;
+            --bg-theme-btn-hover: #232f48;
+            --bg-next-btn: #3a6aaa;
+            --text-next-btn: #ffffff;
+            --bg-next-btn-hover: #2a5a9a;
+            --bg-next-success: #2a7a4a;
+            --bg-next-success-hover: #1a6a3a;
+            --bg-next-completed: #3a7a4a;
+            --bg-audio: #1a2336;
+            --border-audio: #33455f;
+        }
+
+        /* ===== ESTILOS GENERALES ===== */
+        body {
+            background: var(--bg-body-gradient);
+            font-family: 'Segoe UI', Roboto, system-ui, -apple-system, sans-serif;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            padding: 2rem 1rem;
+            transition: background 0.3s ease;
+        }
+
+        .container {
+            max-width: 1100px;
+            width: 100%;
+            background: var(--bg-container);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-radius: 2.5rem;
+            padding: 2rem 2rem 2.5rem;
+            box-shadow: var(--shadow-container);
+            border: 1px solid var(--border-container);
+            transition: background 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        /* ===== HEADER ===== */
+        .header-row {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-between;
+            gap: 1rem 1.5rem;
+            border-bottom: 3px solid var(--border-footer);
+            padding-bottom: 0.75rem;
+            margin-bottom: 1.8rem;
+            transition: border-color 0.3s;
+        }
+
+        h1 {
+            font-size: 2.4rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            letter-spacing: -0.5px;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            flex-wrap: wrap;
+            transition: color 0.2s;
+        }
+
+        h1 small {
+            font-size: 1rem;
+            font-weight: 400;
+            color: var(--text-secondary);
+            background: var(--bg-number);
+            padding: 0.2rem 1rem;
+            border-radius: 40px;
+            letter-spacing: 0.3px;
+            transition: background 0.2s, color 0.2s;
+        }
+
+        .lesson-info {
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+            background: var(--bg-number);
+            padding: 0.3rem 1.2rem;
+            border-radius: 40px;
+            transition: background 0.2s, color 0.2s;
+        }
+
+        /* ===== BOTÓN TEMA ===== */
+        .theme-toggle {
+            background: var(--bg-theme-btn);
+            border: 2px solid var(--border-theme-btn);
+            border-radius: 60px;
+            padding: 0.5rem 1.4rem 0.5rem 1.2rem;
+            display: flex;
+            align-items: center;
+            gap: 0.7rem;
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--text-theme-btn);
+            cursor: pointer;
+            transition: all 0.25s ease;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.06);
+            white-space: nowrap;
+            font-family: inherit;
+        }
+
+        .theme-toggle:hover {
+            background: var(--bg-theme-btn-hover);
+            border-color: var(--border-card-hover);
+            transform: scale(1.03);
+            box-shadow: 0 4px 16px rgba(0,0,0,0.10);
+        }
+
+        .theme-toggle:active {
+            transform: scale(0.96);
+        }
+
+        .theme-toggle .icon {
+            font-size: 1.4rem;
+            line-height: 1;
+        }
+
+        /* ===== REPRODUCTOR DE AUDIO ===== */
+        .audio-player-container {
+            background: var(--bg-audio);
+            border-radius: 1.5rem;
+            padding: 1.2rem 1.8rem;
+            margin-bottom: 2rem;
+            border: 2px solid var(--border-audio);
+            box-shadow: var(--shadow-card);
+            transition: background 0.3s, border-color 0.3s;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .audio-controls {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            flex-wrap: wrap;
+            flex: 1;
+        }
+
+        .audio-label {
+            font-size: 1.2rem;
+        }
+
+        .audio-upload-btn {
+            background: var(--bg-btn-check);
+            border: 2px solid var(--border-btn-check);
+            padding: 0.5rem 1.5rem;
+            border-radius: 40px;
+            font-weight: 600;
+            color: var(--text-btn-check);
+            cursor: pointer;
+            transition: all 0.2s;
+            font-family: inherit;
+            font-size: 0.95rem;
+        }
+
+        .audio-upload-btn:hover {
+            background: var(--bg-btn-check-hover);
+            border-color: var(--border-btn-check-hover);
+        }
+
+        .audio-file-name {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            font-weight: 400;
+            padding: 0.2rem 0.8rem;
+            background: var(--bg-number);
+            border-radius: 30px;
+            transition: background 0.2s, color 0.2s;
+            flex: 1;
+            min-width: 150px;
+        }
+
+        .audio-player-wrapper {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            flex: 1;
+            min-width: 200px;
+        }
+
+        .audio-player-wrapper audio {
+            width: 100%;
+            max-width: 300px;
+            height: 40px;
+            border-radius: 40px;
+            background: var(--bg-word-grid);
+            transition: background 0.3s;
+        }
+
+        .audio-remove-btn {
+            background: transparent;
+            border: 1px solid var(--border-footer-btn);
+            padding: 0.3rem 1rem;
+            border-radius: 40px;
+            color: var(--text-footer-btn);
+            cursor: pointer;
+            font-size: 0.8rem;
+            transition: all 0.2s;
+            font-family: inherit;
+            white-space: nowrap;
+        }
+
+        .audio-remove-btn:hover {
+            background: var(--bg-footer-btn-hover);
+            border-color: var(--border-footer-btn-hover);
+        }
+
+        /* ===== WORD GRID ===== */
+        .word-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+            gap: 0.6rem 0.8rem;
+            background: var(--bg-word-grid);
+            padding: 1.2rem 1.5rem;
+            border-radius: 2rem;
+            margin-bottom: 2.5rem;
+            border: 1px solid var(--border-word-grid);
+            transition: background 0.3s, border 0.3s;
+        }
+
+        .word-item {
+            background: var(--bg-word-item);
+            padding: 0.4rem 0.8rem;
+            border-radius: 40px;
+            font-size: 1rem;
+            font-weight: 500;
+            color: var(--text-word-item);
+            text-align: center;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.02);
+            border: 1px solid var(--border-word-item);
+            transition: background 0.2s, color 0.2s, border 0.2s;
+            font-family: 'Segoe UI', monospace;
+        }
+
+        .word-item .en {
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+
+        .word-item .es {
+            font-weight: 300;
+            color: var(--text-muted);
+            font-size: 0.8rem;
+            display: inline-block;
+            margin-left: 0.2rem;
+            transition: color 0.2s;
+        }
+
+        .word-item .sep {
+            color: var(--border-word-item);
+            margin: 0 0.15rem;
+        }
+
+        .section-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin: 1.8rem 0 0.8rem 0;
+            display: flex;
+            align-items: baseline;
+            gap: 1rem;
+            transition: color 0.2s;
+        }
+
+        .section-title span {
+            font-size: 0.95rem;
+            font-weight: 400;
+            color: var(--text-muted);
+            background: var(--bg-number);
+            padding: 0.1rem 1.2rem;
+            border-radius: 30px;
+            transition: background 0.2s, color 0.2s;
+        }
+
+        /* ===== CARDS ===== */
+        .card-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .exercise-card {
+            background: var(--bg-card);
+            border-radius: 1.5rem;
+            padding: 1rem 1.8rem 1.2rem 1.8rem;
+            box-shadow: var(--shadow-card);
+            border: 1px solid var(--border-card);
+            transition: background 0.25s, border-color 0.25s, box-shadow 0.25s;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 0.8rem 1.2rem;
+        }
+
+        .exercise-card:hover {
+            background: var(--bg-card-hover);
+            border-color: var(--border-card-hover);
+            box-shadow: var(--shadow-card-hover);
+        }
+
+        .exercise-card.correct {
+            border-left: 6px solid var(--text-correct);
+        }
+
+        .exercise-card.wrong {
+            border-left: 6px solid var(--text-wrong);
+        }
+
+        .number-badge {
+            font-weight: 600;
+            color: var(--text-number);
+            background: var(--bg-number);
+            width: 2rem;
+            height: 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 40px;
+            font-size: 0.9rem;
+            flex-shrink: 0;
+            transition: background 0.2s, color 0.2s;
+        }
+
+        .spanish-phrase {
+            font-size: 1.2rem;
+            font-weight: 500;
+            color: var(--text-spanish);
+            min-width: 180px;
+            flex: 2 1 220px;
+            background: var(--bg-spanish);
+            padding: 0.2rem 1rem 0.2rem 1rem;
+            border-radius: 30px;
+            border-left: 4px solid var(--border-spanish);
+            transition: background 0.2s, color 0.2s, border-color 0.2s;
+        }
+
+        .english-prompt {
+            font-size: 1rem;
+            color: var(--text-prompt);
+            background: var(--bg-prompt);
+            padding: 0.2rem 1rem;
+            border-radius: 40px;
+            font-weight: 400;
+            white-space: nowrap;
+            transition: background 0.2s, color 0.2s;
+        }
+
+        .input-area {
+            flex: 3 1 280px;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+        }
+
+        .input-area input {
+            flex: 1;
+            padding: 0.6rem 1rem;
+            border: 2px solid var(--border-input);
+            border-radius: 60px;
+            font-size: 1rem;
+            background: var(--bg-input);
+            transition: 0.2s;
+            font-family: 'Segoe UI', 'Roboto', monospace;
+            letter-spacing: 0.3px;
+            min-width: 160px;
+            outline: none;
+            color: var(--text-input);
+        }
+
+        .input-area input:focus {
+            border-color: var(--border-input-focus);
+            box-shadow: 0 0 0 4px var(--shadow-input-focus);
+            background: var(--bg-input);
+        }
+
+        .input-area input::placeholder {
+            color: var(--text-answer-empty);
+            font-weight: 300;
+            font-size: 0.9rem;
+            letter-spacing: 0px;
+        }
+
+        .input-area input.correct {
+            border-color: var(--text-correct);
+            background: rgba(31, 122, 62, 0.08);
+        }
+
+        .input-area input.wrong {
+            border-color: var(--text-wrong);
+            background: rgba(181, 58, 58, 0.08);
+        }
+
+        .btn-check {
+            background: var(--bg-btn-check);
+            border: 1px solid var(--border-btn-check);
+            padding: 0.5rem 1.1rem;
+            border-radius: 40px;
+            font-weight: 500;
+            color: var(--text-btn-check);
+            cursor: pointer;
+            font-size: 0.9rem;
+            transition: all 0.15s;
+            white-space: nowrap;
+            font-family: inherit;
+        }
+
+        .btn-check:hover {
+            background: var(--bg-btn-check-hover);
+            border-color: var(--border-btn-check-hover);
+            color: var(--text-primary);
+            transform: scale(0.97);
+        }
+
+        .btn-check:active {
+            transform: scale(0.94);
+        }
+
+        .answer-hint {
+            font-size: 0.95rem;
+            color: var(--text-answer);
+            background: var(--bg-answer);
+            padding: 0.2rem 1.2rem;
+            border-radius: 40px;
+            font-weight: 400;
+            opacity: 0.9;
+            border: 1px dashed var(--border-answer);
+            flex-shrink: 0;
+            max-width: 280px;
+            overflow-x: auto;
+            white-space: nowrap;
+            transition: background 0.2s, color 0.2s, border-color 0.2s;
+        }
+
+        .answer-hint.empty {
+            opacity: 0.5;
+            border: 1px dashed var(--border-answer-empty);
+            color: var(--text-answer-empty);
+            background: var(--bg-answer-empty);
+        }
+
+        .answer-hint.correct {
+            border-color: var(--text-correct);
+            background: rgba(31, 122, 62, 0.12);
+        }
+
+        .answer-hint.wrong {
+            border-color: var(--text-wrong);
+            background: rgba(181, 58, 58, 0.12);
+        }
+
+        /* ===== FOOTER ===== */
+        .footer-tip {
+            margin-top: 2.5rem;
+            text-align: center;
+            border-top: 1px solid var(--border-footer);
+            padding-top: 1.5rem;
+            transition: border-color 0.2s;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1.2rem;
+        }
+
+        .footer-buttons {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 1rem 1.5rem;
+        }
+
+        .footer-tip button {
+            background: var(--bg-footer-btn);
+            border: 1px solid var(--border-footer-btn);
+            padding: 0.4rem 1.8rem;
+            border-radius: 60px;
+            color: var(--text-footer-btn);
+            font-weight: 500;
+            cursor: pointer;
+            transition: 0.15s;
+            font-size: 0.9rem;
+            font-family: inherit;
+        }
+
+        .footer-tip button:hover {
+            background: var(--bg-footer-btn-hover);
+            border-color: var(--border-footer-btn-hover);
+            color: var(--text-primary);
+        }
+
+        .clear-btn {
+            background: var(--bg-clear);
+        }
+
+        /* ===== BOTÓN SIGUIENTE ===== */
+        .next-btn {
+            background: var(--bg-next-btn) !important;
+            border: 2px solid var(--bg-next-btn) !important;
+            border-radius: 60px;
+            padding: 0.5rem 2.5rem !important;
+            font-weight: 600 !important;
+            font-size: 1.1rem !important;
+            min-width: 60px;
+            color: var(--text-next-btn) !important;
+            cursor: pointer;
+            transition: all 0.15s ease;
+            font-family: inherit;
+            text-align: center;
+            line-height: 1.5;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+        }
+
+        .next-btn:hover {
+            background: var(--bg-next-btn-hover) !important;
+            border-color: var(--bg-next-btn-hover) !important;
+            transform: scale(1.08);
+            color: var(--text-next-btn) !important;
+        }
+
+        .next-btn:active {
+            transform: scale(0.92);
+        }
+
+        .next-btn.completed {
+            background: var(--bg-next-success) !important;
+            border-color: var(--bg-next-success) !important;
+            min-width: 180px;
+            font-size: 1rem !important;
+        }
+
+        .next-btn.completed:hover {
+            background: var(--bg-next-success-hover) !important;
+            border-color: var(--bg-next-success-hover) !important;
+        }
+
+        .footer-info {
+            font-size: 0.9rem;
+            color: var(--text-footer);
+            transition: color 0.2s;
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 700px) {
+            .container {
+                padding: 1.5rem 1rem;
+            }
+            .exercise-card {
+                flex-direction: column;
+                align-items: stretch;
+                gap: 0.4rem;
+                padding: 1.2rem 1rem;
+            }
+            .number-badge {
+                width: 1.8rem;
+                height: 1.8rem;
+                font-size: 0.8rem;
+            }
+            .spanish-phrase {
+                font-size: 1.1rem;
+                min-width: unset;
+                width: 100%;
+                border-left-width: 3px;
+            }
+            .input-area {
+                flex-wrap: wrap;
+                width: 100%;
+            }
+            .input-area input {
+                min-width: 130px;
+                width: 100%;
+            }
+            .answer-hint {
+                max-width: 100%;
+                white-space: normal;
+                word-break: break-word;
+                font-size: 0.85rem;
+            }
+            .word-grid {
+                grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+                padding: 0.8rem;
+            }
+            h1 {
+                font-size: 1.8rem;
+            }
+            .header-row {
+                flex-direction: column;
+                align-items: stretch;
+                gap: 0.8rem;
+            }
+            .theme-toggle {
+                align-self: flex-start;
+            }
+            .next-btn {
+                min-width: 50px;
+                padding: 0.5rem 1.5rem !important;
+                font-size: 1rem !important;
+            }
+            .next-btn.completed {
+                min-width: 140px;
+                font-size: 0.9rem !important;
+            }
+            .audio-player-container {
+                padding: 1rem;
+                flex-direction: column;
+                align-items: stretch;
+            }
+            .audio-player-wrapper audio {
+                max-width: 100%;
+            }
+        }
+
+        @media (max-width: 450px) {
+            .word-item {
+                font-size: 0.9rem;
+            }
+            .english-prompt {
+                white-space: normal;
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <!-- HEADER con botón de tema -->
+    <div class="header-row">
+        <h1>
+            📘 Ejercicio de Inglés
+            <small>Lección 1</small>
+        </h1>
+        <div style="display: flex; align-items: center; gap: 0.8rem; flex-wrap: wrap;">
+            <span class="lesson-info" id="progressStats">0 / 12 correctas</span>
+            <button class="theme-toggle" id="themeToggle" aria-label="Cambiar tema">
+                <span class="icon" id="themeIcon">☀️</span>
+                <span id="themeLabel">Claro</span>
+            </button>
+        </div>
+    </div>
+
+    <!-- ===== REPRODUCTOR DE AUDIO CON AUDIO POR DEFECTO + BOTÓN SUBIR ===== -->
+    <div class="audio-player-container" id="audioContainer">
+        <div class="audio-controls">
+            <span class="audio-label">🎵</span>
+            <label for="audioUpload" class="audio-upload-btn">
+                📁 Subir audio
+            </label>
+            <input type="file" id="audioUpload" accept=".mp3,.wav,.m4a,.ogg" style="display: none;">
+            <span class="audio-file-name" id="audioFileName">🎵 Audio de la lección (por defecto)</span>
+        </div>
+        <div class="audio-player-wrapper">
+            <audio id="audioPlayer" controls>
+                <source src="audio/leccion1.mp3" type="audio/mpeg">
+                <source src="audio/leccion1.ogg" type="audio/ogg">
+                Tu navegador no soporta el reproductor de audio.
+            </audio>
+            <button class="audio-remove-btn" id="removeAudioBtn">❌ Quitar</button>
+        </div>
+    </div>
+
+    <!-- ===== VOCABULARIO ===== -->
+    <div class="word-grid">
+        <div class="word-item"><span class="en">I</span> <span class="sep">-</span> <span class="es">yo</span></div>
+        <div class="word-item"><span class="en">You</span> <span class="sep">-</span> <span class="es">tú / usted</span></div>
+        <div class="word-item"><span class="en">He</span> <span class="sep">-</span> <span class="es">él</span></div>
+        <div class="word-item"><span class="en">She</span> <span class="sep">-</span> <span class="es">ella</span></div>
+        <div class="word-item"><span class="en">It</span> <span class="sep">-</span> <span class="es">ello / lo / la</span></div>
+        <div class="word-item"><span class="en">We</span> <span class="sep">-</span> <span class="es">nosotros / nosotras</span></div>
+        <div class="word-item"><span class="en">You</span> <span class="sep">-</span> <span class="es">ustedes</span></div>
+        <div class="word-item"><span class="en">They</span> <span class="sep">-</span> <span class="es">ellos / ellas</span></div>
+        <div class="word-item"><span class="en">and</span> <span class="sep">-</span> <span class="es">y</span></div>
+        <div class="word-item"><span class="en">English</span> <span class="sep">-</span> <span class="es">inglés</span></div>
+        <div class="word-item"><span class="en">to live</span> <span class="sep">-</span> <span class="es">vivir</span></div>
+        <div class="word-item"><span class="en">to talk</span> <span class="sep">-</span> <span class="es">hablar</span></div>
+        <div class="word-item"><span class="en">to work</span> <span class="sep">-</span> <span class="es">trabajar</span></div>
+        <div class="word-item"><span class="en">to eat</span> <span class="sep">-</span> <span class="es">comer</span></div>
+        <div class="word-item"><span class="en">to look</span> <span class="sep">-</span> <span class="es">mirar</span></div>
+        <div class="word-item"><span class="en">to write</span> <span class="sep">-</span> <span class="es">escribir</span></div>
+        <div class="word-item"><span class="en">to sign</span> <span class="sep">-</span> <span class="es">firmar</span></div>
+        <div class="word-item"><span class="en">to hear</span> <span class="sep">-</span> <span class="es">escuchar / oír</span></div>
+        <div class="word-item"><span class="en">to read</span> <span class="sep">-</span> <span class="es">leer</span></div>
+        <div class="word-item"><span class="en">to learn</span> <span class="sep">-</span> <span class="es">aprender</span></div>
+    </div>
+
+    <div class="section-title">
+        🗣️ Frases para traducir
+        <span>12 oraciones</span>
+    </div>
+
+    <div class="card-grid" id="exerciseContainer">
+        <!-- Las tarjetas se generan con JavaScript -->
+    </div>
+
+    <!-- ===== FOOTER CON BOTÓN SIGUIENTE ===== -->
+    <div class="footer-tip">
+        <div class="footer-buttons">
+            <button class="clear-btn" id="clearAllBtn">🧹 Limpiar todas</button>
+            <button id="showAllAnswersBtn">👀 Mostrar respuestas</button>
+            <button class="next-btn" id="nextBtn" onclick="location.href='leccion2.html'">▶️</button>
+        </div>
+        <div class="footer-info">
+            💡 Escribe tu traducción y presiona "Verificar" · Doble clic en el hint para ver la respuesta
+        </div>
+    </div>
+</div>
+ <!-- ===== REPRODUCTOR DE AUDIO CON AUDIO POR DEFECTO + BOTÓN SUBIR ===== -->
+    <div class="audio-player-container" id="audioContainer">
+        <div class="audio-controls">
+            <span class="audio-label">🎵</span>
+            <label for="audioUpload" class="audio-upload-btn">
+                📁 Subir audio
+            </label>
+            <input type="file" id="audioUpload" accept=".mp3,.wav,.m4a,.ogg" style="display: none;">
+            <span class="audio-file-name" id="audioFileName">🎵 Audio de la lección (por defecto)</span>
+        </div>
+        <div class="audio-player-wrapper">
+            <audio id="audioPlayer" controls>
+                <source src="audio/leccion1.mp3" type="audio/mpeg">
+                <source src="audio/leccion1.ogg" type="audio/ogg">
+                Tu navegador no soporta el reproductor de audio.
+            </audio>
+            <button class="audio-remove-btn" id="removeAudioBtn">❌ Quitar</button>
+        </div>
+<script>
+    (function() {
+        // ===== FRASES DE LA LECCIÓN 1 =====
+        const sentences = [
+            { spanish: "nosotros aprendemos inglés", english: "We learn English." },
+            { spanish: "helena come", english: "Helena eats." },
+            { spanish: "él mira", english: "He looks." },
+            { spanish: "yo trabajo", english: "I work." },
+            { spanish: "henry escribe", english: "Henry writes." },
+            { spanish: "ellos hablan", english: "They talk." },
+            { spanish: "nosotros oímos", english: "We hear." },
+            { spanish: "pedro y pablo hablan", english: "Pedro and Pablo talk." },
+            { spanish: "usted lee", english: "You read." },
+            { spanish: "ella trabaja", english: "She works." },
+            { spanish: "nosotros firmamos", english: "We sign." },
+            { spanish: "ellos trabajan", english: "They work." }
+        ];
+
+        // ===== REFERENCIAS =====
+        const container = document.getElementById('exerciseContainer');
+        const themeToggle = document.getElementById('themeToggle');
+        const themeIcon = document.getElementById('themeIcon');
+        const themeLabel = document.getElementById('themeLabel');
+        const progressStats = document.getElementById('progressStats');
+        const nextBtn = document.getElementById('nextBtn');
+        const clearAllBtn = document.getElementById('clearAllBtn');
+        const showAllBtn = document.getElementById('showAllAnswersBtn');
+
+        // ===== REFERENCIAS DEL AUDIO =====
+        const audioUpload = document.getElementById('audioUpload');
+        const audioPlayer = document.getElementById('audioPlayer');
+        const audioFileName = document.getElementById('audioFileName');
+        const removeAudioBtn = document.getElementById('removeAudioBtn');
+
+        let correctCount = 0;
+        let cardStates = new Array(sentences.length).fill(false);
+
+        // ===== FUNCIÓN PARA RENDERIZAR TARJETAS =====
+        function renderCards() {
+            container.innerHTML = '';
+            correctCount = 0;
+            cardStates = new Array(sentences.length).fill(false);
+
+            sentences.forEach((item, index) => {
+                const card = document.createElement('div');
+                card.className = 'exercise-card';
+                card.dataset.index = index;
+
+                const numberDiv = document.createElement('div');
+                numberDiv.className = 'number-badge';
+                numberDiv.textContent = index + 1;
+
+                const spanishDiv = document.createElement('div');
+                spanishDiv.className = 'spanish-phrase';
+                spanishDiv.textContent = item.spanish;
+
+                const promptSpan = document.createElement('span');
+                promptSpan.className = 'english-prompt';
+                promptSpan.textContent = '→ en inglés';
+
+                const inputArea = document.createElement('div');
+                inputArea.className = 'input-area';
+
+                const input = document.createElement('input');
+                input.type = 'text';
+                input.placeholder = 'escribe aquí...';
+                input.autocomplete = 'off';
+                input.spellcheck = false;
+                input.dataset.index = index;
+
+                const checkBtn = document.createElement('button');
+                checkBtn.className = 'btn-check';
+                checkBtn.textContent = 'Verificar';
+
+                const hintSpan = document.createElement('span');
+                hintSpan.className = 'answer-hint empty';
+                hintSpan.textContent = '⬤ esperando...';
+
+                // --- Verificar ---
+                function verifyAnswer() {
+                    const userAnswer = input.value.trim();
+                    const correct = item.english;
+
+                    if (userAnswer === '') {
+                        hintSpan.textContent = '✏️ escribe algo';
+                        hintSpan.className = 'answer-hint';
+                        hintSpan.style.color = 'var(--text-warning, #a05a2c)';
+                        return;
+                    }
+
+                    const normalize = (str) => str.toLowerCase().replace(/[^a-z0-9 ]/g, '').replace(/\s+/g, ' ');
+                    const userNorm = normalize(userAnswer);
+                    const correctNorm = normalize(correct);
+
+                    input.classList.remove('correct', 'wrong');
+                    hintSpan.classList.remove('correct', 'wrong', 'empty');
+                    card.classList.remove('correct', 'wrong');
+
+                    if (userNorm === correctNorm) {
+                        hintSpan.textContent = '✅ ¡Correcto! → ' + correct;
+                        hintSpan.className = 'answer-hint correct';
+                        hintSpan.style.color = 'var(--text-correct, #1f7a3e)';
+                        input.classList.add('correct');
+                        card.classList.add('correct');
+                        if (!cardStates[index]) {
+                            cardStates[index] = true;
+                            correctCount++;
+                            updateProgress();
+                        }
+                    } else {
+                        hintSpan.textContent = '❌ Intenta de nuevo. (pista: ' + correct + ')';
+                        hintSpan.className = 'answer-hint wrong';
+                        hintSpan.style.color = 'var(--text-wrong, #b53a3a)';
+                        input.classList.add('wrong');
+                        card.classList.add('wrong');
+                        if (cardStates[index]) {
+                            cardStates[index] = false;
+                            correctCount--;
+                            updateProgress();
+                        }
+                    }
+                }
+
+                checkBtn.addEventListener('click', function(e) {
+                    e.stopPropagation();
+                    verifyAnswer();
+                });
+
+                hintSpan.addEventListener('dblclick', function() {
+                    this.textContent = '📖 ' + item.english;
+                    this.className = 'answer-hint';
+                    this.style.color = 'var(--text-reveal, #1f4a7a)';
+                });
+
+                input.addEventListener('keydown', function(e) {
+                    if (e.key === 'Enter') {
+                        e.preventDefault();
+                        verifyAnswer();
+                    }
+                });
+
+                inputArea.appendChild(input);
+                inputArea.appendChild(checkBtn);
+                inputArea.appendChild(hintSpan);
+
+                card.appendChild(numberDiv);
+                card.appendChild(spanishDiv);
+                card.appendChild(promptSpan);
+                card.appendChild(inputArea);
+
+                container.appendChild(card);
+            });
+
+            updateProgress();
+        }
+
+        // ===== ACTUALIZAR PROGRESO =====
+        function updateProgress() {
+            progressStats.textContent = `${correctCount} / ${sentences.length} correctas`;
+            if (correctCount === sentences.length) {
+                nextBtn.classList.add('completed');
+                nextBtn.innerHTML = '✅ Siguiente →';
+            } else {
+                nextBtn.classList.remove('completed');
+                nextBtn.innerHTML = '▶️';
+            }
+        }
+
+        // ===== FUNCIONES GLOBALES =====
+        function clearAllInputs() {
+            const allInputs = document.querySelectorAll('.input-area input');
+            const allHints = document.querySelectorAll('.answer-hint');
+            const allCards = document.querySelectorAll('.exercise-card');
+
+            allInputs.forEach(inp => {
+                inp.value = '';
+                inp.classList.remove('correct', 'wrong');
+            });
+            allHints.forEach(hint => {
+                hint.textContent = '⬤ esperando...';
+                hint.className = 'answer-hint empty';
+                hint.style.color = '';
+            });
+            allCards.forEach(card => {
+                card.classList.remove('correct', 'wrong');
+            });
+
+            correctCount = 0;
+            cardStates.fill(false);
+            updateProgress();
+            document.activeElement?.blur();
+        }
+
+        function showAllAnswers() {
+            const cards = document.querySelectorAll('.exercise-card');
+            cards.forEach((card, idx) => {
+                const hint = card.querySelector('.answer-hint');
+                const input = card.querySelector('.input-area input');
+                if (hint && idx < sentences.length) {
+                    hint.textContent = '📖 ' + sentences[idx].english;
+                    hint.className = 'answer-hint';
+                    hint.style.color = 'var(--text-reveal, #1f4a7a)';
+                    input.value = sentences[idx].english;
+                    input.classList.add('correct');
+                    card.classList.add('correct');
+                    if (!cardStates[idx]) {
+                        cardStates[idx] = true;
+                        correctCount++;
+                    }
+                }
+            });
+            updateProgress();
+        }
+
+        // ===== REPRODUCTOR DE AUDIO - CON AUDIO POR DEFECTO + SUBIR =====
+        // El audio por defecto ya está en el HTML con <source>
+        // El botón "Subir audio" reemplaza el src con el archivo seleccionado
+
+        audioUpload.addEventListener('change', function(e) {
+            const file = e.target.files[0];
+            
+            if (!file) {
+                audioFileName.textContent = '🎵 Audio de la lección (por defecto)';
+                // Restaurar audio por defecto
+                audioPlayer.innerHTML = `
+                    <source src="audio/leccion1.mp3" type="audio/mpeg">
+                    <source src="audio/leccion1.ogg" type="audio/ogg">
+                    Tu navegador no soporta el reproductor de audio.
+                `;
+                audioPlayer.load();
+                return;
+            }
+
+            // Verificar que sea un archivo de audio
+            if (!file.type.startsWith('audio/')) {
+                alert('⚠️ Por favor selecciona un archivo de audio (MP3, WAV, M4A, OGG)');
+                this.value = '';
+                audioFileName.textContent = '🎵 Audio de la lección (por defecto)';
+                return;
+            }
+
+            // Mostrar nombre del archivo
+            const tamaño = (file.size / 1024 / 1024).toFixed(2);
+            audioFileName.textContent = `🎵 ${file.name} (${tamaño} MB)`;
+
+            // Crear URL del objeto (SIN Base64)
+            const url = URL.createObjectURL(file);
+            
+            // Reemplazar el contenido del audio con el archivo subido
+            audioPlayer.innerHTML = `<source src="${url}" type="${file.type}">`;
+            audioPlayer.load();
+            
+            console.log('✅ Audio cargado sin Base64:', file.name);
+            console.log('📦 Tamaño:', tamaño, 'MB');
+            console.log('🎵 Formato:', file.type);
+        });
+
+        // Quitar el audio (volver al audio por defecto)
+        removeAudioBtn.addEventListener('click', function() {
+            audioPlayer.pause();
+            audioUpload.value = '';
+            audioFileName.textContent = '🎵 Audio de la lección (por defecto)';
+            
+            // Restaurar audio por defecto
+            audioPlayer.innerHTML = `
+                <source src="audio/leccion1.mp3" type="audio/mpeg">
+                <source src="audio/leccion1.ogg" type="audio/ogg">
+                Tu navegador no soporta el reproductor de audio.
+            `;
+            audioPlayer.load();
+            
+            console.log('🔄 Audio restaurado al predeterminado');
+        });
+
+        // ===== MODO OSCURO / CLARO =====
+        function setTheme(theme) {
+            document.documentElement.setAttribute('data-theme', theme);
+            localStorage.setItem('theme', theme);
+            
+            if (theme === 'dark') {
+                themeIcon.textContent = '🌙';
+                themeLabel.textContent = 'Oscuro';
+            } else {
+                themeIcon.textContent = '☀️';
+                themeLabel.textContent = 'Claro';
+            }
+        }
+
+        function toggleTheme() {
+            const current = document.documentElement.getAttribute('data-theme');
+            const next = (current === 'dark') ? 'light' : 'dark';
+            setTheme(next);
+        }
+
+        function loadTheme() {
+            const saved = localStorage.getItem('theme');
+            const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+            let initial = 'light';
+            if (saved) {
+                initial = saved;
+            } else if (prefersDark) {
+                initial = 'dark';
+            }
+            setTheme(initial);
+        }
+
+        // ===== INICIALIZAR =====
+        renderCards();
+        loadTheme();
+
+        // ===== EVENT LISTENERS =====
+        themeToggle.addEventListener('click', toggleTheme);
+        clearAllBtn.addEventListener('click', clearAllInputs);
+        showAllBtn.addEventListener('click', showAllAnswers);
+
+        window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
+            if (!localStorage.getItem('theme')) {
+                setTheme(e.matches ? 'dark' : 'light');
+            }
+        });
+
+        console.log('✅ Lección 1 cargada con 12 frases.');
+        console.log('✅ Reproductor con audio por defecto + botón subir (sin Base64).');
+        console.log('✅ Botón "Siguiente" con onclick a leccion2.html');
+    })();
+</script>
+</body>
+</html>
