@@ -1,0 +1,825 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aprende Inglés Básico · Lección 18</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Segoe UI', Roboto, system-ui, sans-serif;
+            background: linear-gradient(145deg, #f6f9fc 0%, #e6f0f5 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            padding: 2rem 1rem;
+        }
+
+        .container {
+            max-width: 1100px;
+            width: 100%;
+        }
+
+        h1 {
+            font-size: 2.4rem;
+            color: #1a3e60;
+            text-align: center;
+            margin-bottom: 0.5rem;
+            letter-spacing: -0.5px;
+            font-weight: 600;
+        }
+
+        .subtitle {
+            text-align: center;
+            color: #2c5a7a;
+            margin-bottom: 2rem;
+            font-size: 1.2rem;
+            font-weight: 400;
+            border-bottom: 2px solid #b8d4e8;
+            padding-bottom: 1rem;
+        }
+
+        .vocab-section {
+            background: #ffffffdd;
+            backdrop-filter: blur(8px);
+            border-radius: 2rem;
+            padding: 1.8rem 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 10px 25px rgba(0, 30, 50, 0.1);
+            border: 1px solid #ffffff;
+        }
+
+        .vocab-section h2 {
+            font-size: 1.5rem;
+            color: #1f4e73;
+            margin-bottom: 1.2rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .vocab-section h2::before {
+            content: "📘";
+            font-size: 1.8rem;
+        }
+
+        .vocab-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem 1.2rem;
+            justify-content: center;
+        }
+
+        .vocab-item {
+            background: #ffffff;
+            border: 2px solid #c9ddec;
+            padding: 0.5rem 1.2rem;
+            border-radius: 40px;
+            font-size: 1.15rem;
+            font-weight: 500;
+            color: #0b2b40;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.02);
+            transition: 0.2s;
+            font-family: 'Courier New', monospace;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+        }
+
+        .vocab-item:hover {
+            background: #d9eaff;
+            border-color: #6fa3c7;
+        }
+
+        .vocab-item .speaker-icon {
+            font-size: 0.9rem;
+            opacity: 0.6;
+            transition: 0.2s;
+        }
+
+        .vocab-item:hover .speaker-icon {
+            opacity: 1;
+        }
+
+        /* ====== SECCIÓN EXPLICACIÓN WILL ====== */
+        .explanation-section {
+            background: linear-gradient(135deg, #fff8e6 0%, #ffefd6 100%);
+            border: 2px solid #f0d9a8;
+            border-radius: 2rem;
+            padding: 2rem 2.5rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 10px 25px rgba(180, 130, 20, 0.08);
+        }
+
+        .explanation-section h2 {
+            font-size: 1.6rem;
+            color: #8a5a00;
+            margin-bottom: 1.2rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .explanation-section h2::before {
+            content: "💡";
+            font-size: 1.9rem;
+        }
+
+        .explanation-intro {
+            font-size: 1.05rem;
+            color: #5c4a1a;
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+            background: rgba(255, 255, 255, 0.6);
+            padding: 1rem 1.3rem;
+            border-radius: 1rem;
+            border-left: 4px solid #e0a800;
+        }
+
+        .explanation-intro strong {
+            color: #8a5a00;
+        }
+
+        .formula-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .formula-card {
+            background: #ffffff;
+            border-radius: 1.2rem;
+            padding: 1.2rem 1.4rem;
+            border: 2px solid #f0d9a8;
+            box-shadow: 0 4px 10px rgba(180, 130, 20, 0.05);
+        }
+
+        .formula-card h3 {
+            font-size: 1.05rem;
+            color: #8a5a00;
+            margin-bottom: 0.7rem;
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+        }
+
+        .formula-card h3 .tag {
+            font-size: 0.65rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            padding: 0.15rem 0.55rem;
+            border-radius: 20px;
+            letter-spacing: 0.5px;
+        }
+
+        .tag-afirmativo { background: #d4edda; color: #1e7b2b; }
+        .tag-negativo { background: #f8d7da; color: #b32b2b; }
+        .tag-pregunta { background: #d1ecf1; color: #0c5460; }
+
+        .formula-card .formula {
+            font-family: 'Courier New', monospace;
+            background: #fffdf5;
+            padding: 0.6rem 0.8rem;
+            border-radius: 0.6rem;
+            font-size: 0.95rem;
+            color: #333;
+            margin-bottom: 0.7rem;
+            border: 1px dashed #e0c88a;
+            word-break: break-word;
+        }
+
+        .formula-card .example {
+            font-size: 0.9rem;
+            color: #555;
+            line-height: 1.5;
+        }
+
+        .formula-card .example .en {
+            font-family: 'Courier New', monospace;
+            color: #1f4e73;
+            font-weight: 600;
+        }
+
+        .formula-card .example .es {
+            color: #6d6d6d;
+            font-style: italic;
+        }
+
+        .uses-list {
+            background: rgba(255, 255, 255, 0.7);
+            border-radius: 1rem;
+            padding: 1.2rem 1.5rem;
+            border: 1px solid #f0d9a8;
+        }
+
+        .uses-list h3 {
+            font-size: 1.1rem;
+            color: #8a5a00;
+            margin-bottom: 0.8rem;
+        }
+
+        .uses-list ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .uses-list li {
+            font-size: 0.95rem;
+            color: #5c4a1a;
+            padding: 0.4rem 0 0.4rem 1.6rem;
+            position: relative;
+            line-height: 1.5;
+        }
+
+        .uses-list li::before {
+            content: "✔";
+            position: absolute;
+            left: 0;
+            color: #e0a800;
+            font-weight: 700;
+        }
+
+        /* ====== SECCIÓN DE FRASES ====== */
+        .sentences-section {
+            background: #ffffffdd;
+            backdrop-filter: blur(8px);
+            border-radius: 2rem;
+            padding: 2rem 2.5rem;
+            box-shadow: 0 10px 25px rgba(0, 30, 50, 0.1);
+            border: 1px solid #ffffff;
+        }
+
+        .sentences-section h2 {
+            font-size: 1.5rem;
+            color: #1f4e73;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .sentences-section h2::before {
+            content: "✏️";
+            font-size: 1.8rem;
+        }
+
+        .sentence-block {
+            margin-bottom: 1.6rem;
+            padding-bottom: 1.2rem;
+            border-bottom: 1px solid #dbe7f0;
+        }
+
+        .sentence-block:last-child {
+            border-bottom: none;
+        }
+
+        .sentence-prompt-line {
+            display: flex;
+            align-items: center;
+            gap: 0.7rem;
+            margin-bottom: 0.5rem;
+            flex-wrap: wrap;
+        }
+
+        .sentence-number {
+            background: #1f4e73;
+            color: white;
+            width: 28px;
+            height: 28px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            font-weight: 600;
+            font-size: 0.85rem;
+            flex-shrink: 0;
+            font-family: 'Courier New', monospace;
+        }
+
+        .sentence-prompt {
+            font-weight: 600;
+            color: #10344d;
+            font-size: 1.1rem;
+        }
+
+        .audio-btn {
+            background: #e3effa;
+            border: 2px solid #a8c4d9;
+            color: #1f4e73;
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.05rem;
+            transition: 0.2s;
+            flex-shrink: 0;
+            padding: 0;
+        }
+
+        .audio-btn:hover {
+            background: #1f4e73;
+            color: white;
+            border-color: #1f4e73;
+            transform: scale(1.08);
+        }
+
+        .audio-btn:active {
+            transform: scale(0.95);
+        }
+
+        .audio-btn.playing {
+            background: #1f4e73;
+            color: white;
+            border-color: #1f4e73;
+            animation: pulse 1s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { box-shadow: 0 0 0 0 rgba(31, 78, 115, 0.5); }
+            50% { box-shadow: 0 0 0 8px rgba(31, 78, 115, 0); }
+        }
+
+        .listen-hint {
+            font-size: 0.8rem;
+            color: #6d8aa0;
+            font-style: italic;
+            margin-left: 0.2rem;
+        }
+
+        .write-line {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            padding-left: 36px;
+            flex-wrap: wrap;
+        }
+
+        .write-line input {
+            flex: 1;
+            min-width: 200px;
+            padding: 0.5rem 0.2rem;
+            border: none;
+            border-bottom: 2px solid #a8c4d9;
+            background: transparent;
+            font-size: 1.05rem;
+            font-family: 'Courier New', monospace;
+            color: #0b2b40;
+            transition: 0.15s;
+            outline: none;
+        }
+
+        .write-line input:focus {
+            border-bottom: 2px solid #1f4e73;
+            background: rgba(31, 78, 115, 0.04);
+        }
+
+        .write-line input.correct-input {
+            border-bottom: 2px solid #2e7d32;
+            color: #1e7b2b;
+            background: rgba(46, 125, 50, 0.06);
+        }
+
+        .write-line input.incorrect-input {
+            border-bottom: 2px solid #c62828;
+            color: #b32b2b;
+            background: rgba(198, 40, 40, 0.05);
+        }
+
+        .check-btn {
+            background: #1f4e73;
+            border: none;
+            color: white;
+            font-weight: 600;
+            padding: 0.6rem 1.3rem;
+            border-radius: 30px;
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: 0.15s;
+            white-space: nowrap;
+            flex-shrink: 0;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .check-btn:hover {
+            background: #0e3552;
+        }
+
+        .check-btn:active {
+            transform: scale(0.97);
+        }
+
+        .feedback {
+            font-size: 0.9rem;
+            font-weight: 500;
+            min-width: 120px;
+            display: flex;
+            align-items: center;
+            gap: 0.2rem;
+            flex-shrink: 0;
+        }
+
+        .feedback.correct {
+            color: #1e7b2b;
+        }
+
+        .feedback.incorrect {
+            color: #b32b2b;
+        }
+
+        .feedback.neutral {
+            color: #6d7e8b;
+        }
+
+        .buttons-area {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 2rem;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .reset-btn {
+            background: #ffffff;
+            border: 2px solid #b0c9db;
+            color: #1f4e73;
+            font-weight: 600;
+            padding: 0.8rem 1.8rem;
+            border-radius: 40px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: 0.2s;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+        }
+
+        .reset-btn:hover {
+            background: #e3effa;
+            border-color: #1f4e73;
+        }
+
+        .next-btn {
+            background: #1f4e73;
+            color: white;
+            font-weight: 600;
+            padding: 0.85rem 2rem;
+            border-radius: 40px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: 0.2s;
+            box-shadow: 0 6px 15px rgba(31, 78, 115, 0.3);
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .next-btn:hover {
+            background: #0e3552;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(31, 78, 115, 0.4);
+        }
+
+        .next-btn:active {
+            transform: translateY(0);
+        }
+
+        .note {
+            text-align: center;
+            margin-top: 1.2rem;
+            font-size: 0.9rem;
+            color: #436684;
+            font-style: italic;
+        }
+
+        @media (max-width: 700px) {
+            h1 { font-size: 1.8rem; }
+            .sentences-section { padding: 1.5rem 1.2rem; }
+            .explanation-section { padding: 1.4rem 1.2rem; }
+            .write-line { padding-left: 0; }
+            .write-line input { width: 100%; }
+            .feedback { min-width: auto; }
+            .vocab-section { padding: 1.3rem; }
+            .buttons-area {
+                flex-direction: column;
+                align-items: stretch;
+            }
+            .reset-btn, .next-btn {
+                justify-content: center;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h1>🇬🇧 Aprende Inglés Básico</h1>
+    <div class="subtitle">Lección 18 · El futuro con "will" · Escucha en inglés y escribe</div>
+
+    <div class="vocab-section">
+        <h2>Vocabulario (clic para escuchar)</h2>
+        <div class="vocab-grid" id="vocabGrid"></div>
+    </div>
+
+    <!-- ====== EXPLICACIÓN DEL VERBO WILL ====== -->
+    <div class="explanation-section">
+        <h2>Explicación: el futuro con "will"</h2>
+
+        <div class="explanation-intro">
+            <strong>Will</strong> es un verbo auxiliar que se usa para hablar del <strong>futuro</strong>.
+            Significa <em>"voy a / haré / sucederá"</em>. Es igual para todas las personas
+            (I, you, he, she, it, we, they) — <strong>nunca cambia</strong>.
+        </div>
+
+        <div class="formula-grid">
+            <!-- AFIRMATIVO -->
+            <div class="formula-card">
+                <h3>✅ Afirmativo <span class="tag tag-afirmativo">Will</span></h3>
+                <div class="formula">Sujeto + will + verbo</div>
+                <div class="example">
+                    <span class="en">I will call you.</span><br>
+                    <span class="es">Te llamaré.</span><br><br>
+                    <span class="en">She will travel to Europe.</span><br>
+                    <span class="es">Ella viajará a Europa.</span>
+                </div>
+            </div>
+
+            <!-- NEGATIVO -->
+            <div class="formula-card">
+                <h3>❌ Negativo <span class="tag tag-negativo">Will not</span></h3>
+                <div class="formula">Sujeto + will not + verbo</div>
+                <div class="example">
+                    <span class="en">I will not forget.</span><br>
+                    <span class="es">No olvidaré.</span><br><br>
+                    <span class="en">It will not snow.</span><br>
+                    <span class="es">No nevará.</span>
+                </div>
+            </div>
+
+            <!-- PREGUNTA -->
+            <div class="formula-card">
+                <h3>❓ Pregunta <span class="tag tag-pregunta">Will ...?</span></h3>
+                <div class="formula">Will + sujeto + verbo ?</div>
+                <div class="example">
+                    <span class="en">Will she find her book?</span><br>
+                    <span class="es">¿Encontrará ella su libro?</span><br><br>
+                    <span class="en">Will they arrive on time?</span><br>
+                    <span class="es">¿Llegarán a tiempo?</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="uses-list">
+            <h3>📌 ¿Cuándo usamos "will"?</h3>
+            <ul>
+                <li><strong>Predicciones:</strong> It will rain tomorrow. (Lloverá mañana.)</li>
+                <li><strong>Decisiones espontáneas:</strong> I will call him now. (Lo llamaré ahora.)</li>
+                <li><strong>Promesas:</strong> I will help you. (Te ayudaré.)</li>
+                <li><strong>Eventos futuros:</strong> They will travel to Europe. (Viajarán a Europa.)</li>
+                <li><strong>Forma corta:</strong> <em>will</em> → <em>'ll</em> (I'll, you'll, she'll...)</li>
+                <li><strong>Forma corta negativa:</strong> <em>will not</em> → <em>won't</em></li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="sentences-section">
+        <h2>Escucha en inglés y escribe la frase</h2>
+        <div id="sentencesContainer"></div>
+
+        <div class="buttons-area">
+            <button class="reset-btn" id="resetAllBtn">⟲ Reiniciar</button>
+            <a href="leccion19.html" class="next-btn">Siguiente Lección →</a>
+        </div>
+        <div class="note">💡 La frase está en español. Presiona 🔊 para escucharla en inglés y escríbela en el renglón.</div>
+    </div>
+</div>
+
+<script>
+    let englishVoice = null;
+
+    function loadVoices() {
+        const voices = window.speechSynthesis.getVoices();
+        englishVoice = voices.find(v => v.lang === 'en-US' && v.name.includes('Google'))
+                    || voices.find(v => v.lang === 'en-US')
+                    || voices.find(v => v.lang.startsWith('en-GB'))
+                    || voices.find(v => v.lang.startsWith('en'));
+    }
+
+    if (typeof speechSynthesis !== 'undefined') {
+        loadVoices();
+        speechSynthesis.onvoiceschanged = loadVoices;
+    }
+
+    function speak(text, buttonElement) {
+        if (!('speechSynthesis' in window)) {
+            alert('Tu navegador no soporta la síntesis de voz.');
+            return;
+        }
+        speechSynthesis.cancel();
+        const utterance = new SpeechSynthesisUtterance(text);
+        utterance.lang = 'en-US';
+        utterance.rate = 0.85;
+        utterance.pitch = 1;
+        utterance.volume = 1;
+        if (englishVoice) utterance.voice = englishVoice;
+        if (buttonElement) {
+            buttonElement.classList.add('playing');
+            utterance.onend = () => buttonElement.classList.remove('playing');
+            utterance.onerror = () => buttonElement.classList.remove('playing');
+        }
+        speechSynthesis.speak(utterance);
+    }
+
+    // ====== VOCABULARIO LECCIÓN 18 (corregido) ======
+    const vocabulary = [
+        "six", "to snow", "to bring", "to win", "to arrive",
+        "all", "show", "until", "election", "speech",
+        "on time", "alone", "for", "meeting", "appointment",
+        "United States", "snow", "president"
+    ];
+
+    const vocabGrid = document.getElementById('vocabGrid');
+    vocabulary.forEach(word => {
+        const item = document.createElement('span');
+        item.className = 'vocab-item';
+        item.innerHTML = `${word} <span class="speaker-icon">🔊</span>`;
+        item.title = 'Clic para escuchar';
+        item.addEventListener('click', () => speak(word, item));
+        vocabGrid.appendChild(item);
+    });
+
+    // ====== FRASES LECCIÓN 18 (corregidas) ======
+    const spanishSentences = [
+        "Ella no te llamará hoy",
+        "Ellos no llegarán a tiempo para la reunión",
+        "Yo no olvidaré la cita",
+        "No nevará",
+        "No nos iremos a la función hasta las seis en punto",
+        "¿Terminarás toda la tarea esta noche?",
+        "¿Firmaremos el contrato esta semana?",
+        "¿Ganará el presidente las elecciones en los Estados Unidos?",
+        "¿Encontrará ella su libro de inglés?",
+        "¿Llegarán ellos a tiempo para el discurso?",
+        "¿Me dejarás solo por un minuto?",
+        "¿Lloverá mañana?"
+    ];
+
+    const correctAnswers = [
+        "she will not call you today",
+        "they will not arrive on time for the meeting",
+        "i will not forget the appointment",
+        "it will not snow",
+        "we will not live for the show until six o'clock",
+        "will you finish all the homework tonight",
+        "will we sign the contract this week",
+        "will the president win the election in the united states",
+        "will she find her english book",
+        "will they arrive on time for the speech",
+        "will you leave me alone for a minute",
+        "will it rain tomorrow"
+    ];
+
+    const audioPhrases = correctAnswers;
+    const normalizedCorrect = correctAnswers.map(ans => ans.toLowerCase().trim());
+
+    const container = document.getElementById('sentencesContainer');
+    const resetBtn = document.getElementById('resetAllBtn');
+
+    function normalizeInput(str) {
+        return str.toLowerCase().trim().replace(/\s+/g, ' ');
+    }
+
+    function renderSentences() {
+        container.innerHTML = '';
+        spanishSentences.forEach((spanishSentence, index) => {
+            const block = document.createElement('div');
+            block.className = 'sentence-block';
+            block.dataset.index = index;
+
+            const promptLine = document.createElement('div');
+            promptLine.className = 'sentence-prompt-line';
+
+            const numSpan = document.createElement('span');
+            numSpan.className = 'sentence-number';
+            numSpan.textContent = index + 1;
+
+            const promptSpan = document.createElement('span');
+            promptSpan.className = 'sentence-prompt';
+            promptSpan.textContent = spanishSentence;
+
+            const audioBtn = document.createElement('button');
+            audioBtn.className = 'audio-btn';
+            audioBtn.innerHTML = '🔊';
+            audioBtn.title = 'Escuchar en inglés';
+            audioBtn.addEventListener('click', () => speak(audioPhrases[index], audioBtn));
+
+            const listenHint = document.createElement('span');
+            listenHint.className = 'listen-hint';
+            listenHint.textContent = '(escucha en inglés)';
+
+            promptLine.appendChild(numSpan);
+            promptLine.appendChild(promptSpan);
+            promptLine.appendChild(audioBtn);
+            promptLine.appendChild(listenHint);
+
+            const writeLine = document.createElement('div');
+            writeLine.className = 'write-line';
+
+            const input = document.createElement('input');
+            input.type = 'text';
+            input.placeholder = 'escribe en inglés...';
+            input.id = `input-${index}`;
+            input.setAttribute('autocomplete', 'off');
+            input.setAttribute('spellcheck', 'false');
+
+            const checkBtn = document.createElement('button');
+            checkBtn.className = 'check-btn';
+            checkBtn.textContent = '✓ Verificar';
+            checkBtn.dataset.index = index;
+
+            const feedback = document.createElement('span');
+            feedback.className = 'feedback neutral';
+            feedback.id = `feedback-${index}`;
+            feedback.textContent = '';
+
+            writeLine.appendChild(input);
+            writeLine.appendChild(checkBtn);
+            writeLine.appendChild(feedback);
+
+            block.appendChild(promptLine);
+            block.appendChild(writeLine);
+
+            container.appendChild(block);
+
+            checkBtn.addEventListener('click', () => checkAnswer(index, input, feedback));
+
+            input.addEventListener('keypress', (e) => {
+                if (e.key === 'Enter') {
+                    e.preventDefault();
+                    checkAnswer(index, input, feedback);
+                }
+            });
+
+            input.addEventListener('input', () => {
+                input.classList.remove('correct-input', 'incorrect-input');
+                feedback.textContent = '';
+                feedback.className = 'feedback neutral';
+            });
+        });
+    }
+
+    function checkAnswer(index, input, feedbackElement) {
+        const userAnswer = input.value;
+        const normalizedUser = normalizeInput(userAnswer);
+        const correct = normalizedCorrect[index];
+
+        if (normalizedUser === '') {
+            feedbackElement.textContent = '✏️ Escribe algo';
+            feedbackElement.className = 'feedback incorrect';
+            input.classList.remove('correct-input', 'incorrect-input');
+            input.classList.add('incorrect-input');
+            return;
+        }
+
+        if (normalizedUser === correct) {
+            feedbackElement.textContent = '✅ ¡Correcto!';
+            feedbackElement.className = 'feedback correct';
+            input.classList.remove('incorrect-input');
+            input.classList.add('correct-input');
+        } else {
+            feedbackElement.textContent = '❌ Intenta de nuevo';
+            feedbackElement.className = 'feedback incorrect';
+            input.classList.remove('correct-input');
+            input.classList.add('incorrect-input');
+        }
+    }
+
+    function resetAll() {
+        spanishSentences.forEach((_, index) => {
+            const input = document.getElementById(`input-${index}`);
+            const feedback = document.getElementById(`feedback-${index}`);
+            if (input) {
+                input.value = '';
+                input.classList.remove('correct-input', 'incorrect-input');
+            }
+            if (feedback) {
+                feedback.textContent = '';
+                feedback.className = 'feedback neutral';
+            }
+        });
+    }
+
+    renderSentences();
+    resetBtn.addEventListener('click', resetAll);
+</script>
+</body>
+</html>
