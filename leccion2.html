@@ -1,1171 +1,630 @@
 <!DOCTYPE html>
-<html lang="es" data-theme="light">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
-    <title>English Writing · Lección 2</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aprende Inglés Básico · Lección 2</title>
     <style>
         * {
             box-sizing: border-box;
             margin: 0;
             padding: 0;
-            -webkit-tap-highlight-color: transparent;
-        }
-
-        html, body {
-            height: 100%;
-            overflow: hidden;
-            touch-action: manipulation;
-        }
-
-        :root {
-            --bg-body: #f0f4fc;
-            --bg-body-gradient: linear-gradient(145deg, #f0f4fc 0%, #dce4f0 100%);
-            --bg-container: rgba(255, 255, 255, 0.95);
-            --shadow-container: 0 0 40px rgba(0, 20, 40, 0.10);
-            --text-primary: #1a2639;
-            --text-secondary: #3e4c66;
-            --text-muted: #4a5d7a;
-            --bg-card: #ffffff;
-            --border-card: #e6edf8;
-            --bg-input: #ffffff;
-            --border-input: #d0dcee;
-            --border-input-focus: #4f7bb3;
-            --text-correct: #1f7a3e;
-            --text-wrong: #b53a3a;
-            --bg-success: rgba(31, 122, 62, 0.08);
-            --bg-error: rgba(181, 58, 58, 0.08);
-            --bg-number: #dfeaf9;
-            --bg-footer-btn-hover: #d3e2fb;
-            --border-footer: #c7d7ed;
-            --bg-theme-btn: #ffffff;
-            --border-theme-btn: #c8d4e6;
-            --bg-scrollbar: #dce4f0;
-            --bg-scrollbar-thumb: #a8bcd8;
-            --safe-bottom: env(safe-area-inset-bottom, 0px);
-            --bg-audio-btn: #4f7bb3;
-            --text-audio-btn: #ffffff;
-            --bg-audio-btn-hover: #3a6a9e;
-        }
-
-        [data-theme="dark"] {
-            --bg-body: #0d111a;
-            --bg-body-gradient: linear-gradient(145deg, #0d111a 0%, #151e2b 100%);
-            --bg-container: rgba(20, 26, 40, 0.95);
-            --shadow-container: 0 0 40px rgba(0, 0, 0, 0.4);
-            --text-primary: #e8edf5;
-            --text-secondary: #a8bcd8;
-            --text-muted: #94aac9;
-            --bg-card: #1a2336;
-            --border-card: #2a3a54;
-            --bg-input: #111b2c;
-            --border-input: #334a6a;
-            --border-input-focus: #5a82be;
-            --text-correct: #6dca8a;
-            --text-wrong: #e07070;
-            --bg-success: rgba(109, 202, 138, 0.12);
-            --bg-error: rgba(224, 112, 112, 0.12);
-            --bg-number: #263a58;
-            --bg-footer-btn-hover: #223a60;
-            --border-footer: #2a3e5e;
-            --bg-theme-btn: #1a2336;
-            --border-theme-btn: #33455f;
-            --bg-scrollbar: #1a2336;
-            --bg-scrollbar-thumb: #33455f;
-            --bg-audio-btn: #3a6a9e;
-            --text-audio-btn: #ffffff;
-            --bg-audio-btn-hover: #2a5a8e;
         }
 
         body {
-            background: var(--bg-body-gradient);
-            font-family: -apple-system, 'Segoe UI', Roboto, system-ui, sans-serif;
-            height: 100vh;
-            height: 100dvh;
+            font-family: 'Segoe UI', Roboto, system-ui, sans-serif;
+            background: linear-gradient(145deg, #f6f9fc 0%, #e6f0f5 100%);
+            min-height: 100vh;
             display: flex;
             justify-content: center;
-            padding: 0.4rem;
-            transition: background 0.3s;
-            -webkit-font-smoothing: antialiased;
+            padding: 2rem 1rem;
         }
 
         .container {
-            max-width: 1400px;
+            max-width: 1100px;
             width: 100%;
-            height: 100%;
-            height: 100dvh;
-            background: var(--bg-container);
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
-            border-radius: 1rem;
-            padding: 0.6rem 0.8rem;
-            box-shadow: var(--shadow-container);
-            transition: background 0.3s;
-            display: flex;
-            flex-direction: column;
-            overflow: hidden;
-        }
-
-        ::-webkit-scrollbar {
-            width: 4px;
-        }
-        ::-webkit-scrollbar-track {
-            background: var(--bg-scrollbar);
-            border-radius: 10px;
-        }
-        ::-webkit-scrollbar-thumb {
-            background: var(--bg-scrollbar-thumb);
-            border-radius: 10px;
-        }
-
-        /* ===== HEADER ===== */
-        .header-row {
-            display: flex;
-            flex-wrap: wrap;
-            align-items: center;
-            justify-content: space-between;
-            gap: 0.3rem;
-            border-bottom: 2px solid var(--border-footer);
-            padding-bottom: 0.4rem;
-            margin-bottom: 0.5rem;
-            flex-shrink: 0;
         }
 
         h1 {
-            font-size: 1.1rem;
+            font-size: 2.4rem;
+            color: #1a3e60;
+            text-align: center;
+            margin-bottom: 0.5rem;
+            letter-spacing: -0.5px;
             font-weight: 600;
-            color: var(--text-primary);
-            display: flex;
-            align-items: center;
-            gap: 0.3rem;
         }
 
-        h1 small {
-            font-size: 0.6rem;
+        .subtitle {
+            text-align: center;
+            color: #2c5a7a;
+            margin-bottom: 2rem;
+            font-size: 1.2rem;
             font-weight: 400;
-            color: var(--text-secondary);
-            background: var(--bg-number);
-            padding: 0.05rem 0.5rem;
-            border-radius: 30px;
+            border-bottom: 2px solid #b8d4e8;
+            padding-bottom: 1rem;
         }
 
-        .header-right {
+        .vocab-section {
+            background: #ffffffdd;
+            backdrop-filter: blur(8px);
+            border-radius: 2rem;
+            padding: 1.8rem 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 10px 25px rgba(0, 30, 50, 0.1);
+            border: 1px solid #ffffff;
+        }
+
+        .vocab-section h2 {
+            font-size: 1.5rem;
+            color: #1f4e73;
+            margin-bottom: 1.2rem;
             display: flex;
             align-items: center;
-            gap: 0.3rem;
+            gap: 0.5rem;
+        }
+
+        .vocab-section h2::before {
+            content: "📘";
+            font-size: 1.8rem;
+        }
+
+        .vocab-grid {
+            display: flex;
             flex-wrap: wrap;
+            gap: 0.75rem 1.2rem;
+            justify-content: center;
         }
 
-        .stats-badge {
-            font-size: 0.6rem;
-            font-weight: 500;
-            color: var(--text-secondary);
-            background: var(--bg-number);
-            padding: 0.1rem 0.5rem;
-            border-radius: 30px;
-            white-space: nowrap;
-        }
-
-        .theme-toggle {
-            background: var(--bg-theme-btn);
-            border: 1.5px solid var(--border-theme-btn);
+        .vocab-item {
+            background: #ffffff;
+            border: 2px solid #c9ddec;
+            padding: 0.5rem 1.2rem;
             border-radius: 40px;
-            padding: 0.1rem 0.5rem 0.1rem 0.4rem;
-            display: flex;
-            align-items: center;
-            gap: 0.2rem;
-            font-size: 0.6rem;
-            font-weight: 600;
-            color: var(--text-primary);
+            font-size: 1.15rem;
+            font-weight: 500;
+            color: #0b2b40;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.02);
+            transition: 0.2s;
+            font-family: 'Courier New', monospace;
             cursor: pointer;
-            transition: all 0.2s;
-            font-family: inherit;
-            touch-action: manipulation;
-        }
-
-        .theme-toggle:hover {
-            background: var(--bg-footer-btn-hover);
-        }
-        .theme-toggle:active {
-            transform: scale(0.95);
-        }
-
-        /* ===== CONTENIDO SCROLLABLE ===== */
-        .content-scroll {
-            flex: 1;
-            overflow-y: auto;
-            overflow-x: hidden;
-            padding-right: 0.2rem;
-            margin-right: -0.2rem;
-            -webkit-overflow-scrolling: touch;
-            scroll-behavior: smooth;
-        }
-
-        /* ===== VOCABULARIO GRID ===== */
-        .section-title {
-            font-size: 0.8rem;
-            font-weight: 600;
-            color: var(--text-primary);
-            margin: 0.4rem 0 0.3rem 0;
-            display: flex;
+            display: inline-flex;
             align-items: center;
             gap: 0.4rem;
-            flex-shrink: 0;
         }
 
-        .section-title span {
-            font-size: 0.55rem;
-            font-weight: 400;
-            color: var(--text-muted);
-            background: var(--bg-number);
-            padding: 0.05rem 0.5rem;
-            border-radius: 30px;
+        .vocab-item:hover {
+            background: #d9eaff;
+            border-color: #6fa3c7;
         }
 
-        .section-title .stats-badge {
-            margin-left: auto;
+        .vocab-item .speaker-icon {
+            font-size: 0.9rem;
+            opacity: 0.6;
+            transition: 0.2s;
         }
 
-        .word-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(110px, 1fr));
-            gap: 0.3rem;
-            background: var(--bg-number);
-            padding: 0.4rem 0.6rem;
-            border-radius: 0.6rem;
+        .vocab-item:hover .speaker-icon {
+            opacity: 1;
+        }
+
+        /* ====== SECCIÓN DE FRASES ====== */
+        .sentences-section {
+            background: #ffffffdd;
+            backdrop-filter: blur(8px);
+            border-radius: 2rem;
+            padding: 2rem 2.5rem;
+            box-shadow: 0 10px 25px rgba(0, 30, 50, 0.1);
+            border: 1px solid #ffffff;
+        }
+
+        .sentences-section h2 {
+            font-size: 1.5rem;
+            color: #1f4e73;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .sentences-section h2::before {
+            content: "✏️";
+            font-size: 1.8rem;
+        }
+
+        .sentence-block {
+            margin-bottom: 1.6rem;
+            padding-bottom: 1.2rem;
+            border-bottom: 1px solid #dbe7f0;
+        }
+
+        .sentence-block:last-child {
+            border-bottom: none;
+        }
+
+        .sentence-prompt-line {
+            display: flex;
+            align-items: center;
+            gap: 0.7rem;
             margin-bottom: 0.5rem;
-            border: 1px solid var(--border-card);
-            transition: background 0.3s;
-            opacity: 0.7;
-        }
-
-        .word-item {
-            background: var(--bg-card);
-            padding: 0.15rem 0.4rem;
-            border-radius: 30px;
-            font-size: 0.65rem;
-            font-weight: 500;
-            color: var(--text-primary);
-            text-align: center;
-            border: 1px solid var(--border-card);
-            transition: background 0.2s;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 0.2rem;
-        }
-
-        .word-item .en {
-            font-weight: 600;
-            color: var(--text-primary);
-        }
-
-        .word-item .es {
-            font-weight: 300;
-            color: var(--text-muted);
-            font-size: 0.55rem;
-        }
-
-        .word-item .sep {
-            color: var(--border-card);
-        }
-
-        /* ===== TARJETAS ===== */
-        .practice-grid {
-            display: flex;
-            flex-direction: column;
-            gap: 0.25rem;
-            margin-bottom: 0.2rem;
-        }
-
-        .practice-card {
-            background: var(--bg-card);
-            border-radius: 0.5rem;
-            padding: 0.3rem 0.5rem;
-            border: 1px solid var(--border-card);
-            transition: all 0.15s;
-            display: flex;
             flex-wrap: wrap;
-            align-items: center;
-            gap: 0.2rem 0.3rem;
-            touch-action: manipulation;
         }
 
-        .practice-card:active {
-            transform: scale(0.99);
-        }
-
-        .practice-card.correct {
-            border-left: 3px solid var(--text-correct);
-            background: var(--bg-success);
-        }
-
-        .practice-card.wrong {
-            border-left: 3px solid var(--text-wrong);
-            background: var(--bg-error);
-        }
-
-        .number-badge {
-            font-weight: 600;
-            color: var(--text-secondary);
-            background: var(--bg-number);
-            width: 1.2rem;
-            height: 1.2rem;
+        .sentence-number {
+            background: #1f4e73;
+            color: white;
+            width: 28px;
+            height: 28px;
             display: flex;
             align-items: center;
             justify-content: center;
-            border-radius: 30px;
-            font-size: 0.5rem;
-            flex-shrink: 0;
-        }
-
-        .prompt-text {
-            font-size: 0.7rem;
-            font-weight: 500;
-            color: var(--text-primary);
-            min-width: 50px;
-            flex: 0 1 70px;
-            padding: 0.05rem 0.3rem;
-            border-radius: 6px;
-            border-left: 2px solid var(--border-card);
-            word-break: break-word;
-            display: flex;
-            align-items: center;
-            gap: 0.2rem;
-        }
-
-        .prompt-text .es {
-            font-weight: 300;
-            color: var(--text-muted);
-            font-size: 0.65rem;
-        }
-
-        /* ===== BOTÓN DE AUDIO ===== */
-        .audio-btn {
-            background: var(--bg-audio-btn);
-            border: none;
             border-radius: 50%;
-            width: 1.4rem;
-            height: 1.4rem;
+            font-weight: 600;
+            font-size: 0.85rem;
+            flex-shrink: 0;
+            font-family: 'Courier New', monospace;
+        }
+
+        .sentence-prompt {
+            font-weight: 600;
+            color: #10344d;
+            font-size: 1.1rem;
+        }
+
+        .audio-btn {
+            background: #e3effa;
+            border: 2px solid #a8c4d9;
+            color: #1f4e73;
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            cursor: pointer;
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            color: var(--text-audio-btn);
-            font-size: 0.7rem;
-            cursor: pointer;
-            transition: all 0.2s;
+            font-size: 1.05rem;
+            transition: 0.2s;
             flex-shrink: 0;
-            touch-action: manipulation;
+            padding: 0;
         }
 
         .audio-btn:hover {
-            background: var(--bg-audio-btn-hover);
-            transform: scale(1.05);
+            background: #1f4e73;
+            color: white;
+            border-color: #1f4e73;
+            transform: scale(1.08);
         }
 
         .audio-btn:active {
-            transform: scale(0.9);
+            transform: scale(0.95);
         }
 
         .audio-btn.playing {
-            background: var(--text-correct);
-            animation: pulse 0.8s ease-in-out infinite;
+            background: #1f4e73;
+            color: white;
+            border-color: #1f4e73;
+            animation: pulse 1s infinite;
         }
 
         @keyframes pulse {
-            0%, 100% { transform: scale(1); }
-            50% { transform: scale(1.1); }
+            0%, 100% { box-shadow: 0 0 0 0 rgba(31, 78, 115, 0.5); }
+            50% { box-shadow: 0 0 0 8px rgba(31, 78, 115, 0); }
         }
 
-        .writing-area {
-            flex: 1;
+        .listen-hint {
+            font-size: 0.8rem;
+            color: #6d8aa0;
+            font-style: italic;
+            margin-left: 0.2rem;
+        }
+
+        .write-line {
             display: flex;
             align-items: center;
-            gap: 0.25rem;
-            min-width: 120px;
+            gap: 0.8rem;
+            padding-left: 36px;
             flex-wrap: wrap;
         }
 
-        .writing-area textarea {
+        .write-line input {
             flex: 1;
-            padding: 0.2rem 0.4rem;
-            border: 1.5px solid var(--border-input);
-            border-radius: 6px;
-            font-size: 0.7rem;
-            font-family: -apple-system, 'Segoe UI', monospace;
-            background: var(--bg-input);
-            color: var(--text-primary);
-            transition: 0.15s;
-            resize: none;
-            min-height: 32px;
-            max-height: 60px;
-            outline: none;
-            line-height: 1.3;
-            min-width: 60px;
-            -webkit-appearance: none;
-            appearance: none;
-            touch-action: manipulation;
-        }
-
-        .writing-area textarea:focus {
-            border-color: var(--border-input-focus);
-            box-shadow: 0 0 0 2px var(--bg-number);
-        }
-
-        .writing-area textarea.correct {
-            border-color: var(--text-correct);
-            background: var(--bg-success);
-        }
-
-        .writing-area textarea.wrong {
-            border-color: var(--text-wrong);
-            background: var(--bg-error);
-        }
-
-        .btn-check {
-            background: var(--bg-number);
-            border: 1px solid var(--border-input);
-            padding: 0.1rem 0.5rem;
-            border-radius: 30px;
-            font-weight: 500;
-            color: var(--text-secondary);
-            cursor: pointer;
-            font-size: 0.55rem;
-            transition: all 0.15s;
-            font-family: inherit;
-            height: 1.6rem;
-            white-space: nowrap;
-            flex-shrink: 0;
-            touch-action: manipulation;
-            -webkit-tap-highlight-color: transparent;
-        }
-
-        .btn-check:active {
-            transform: scale(0.92);
-            background: var(--bg-footer-btn-hover);
-        }
-
-        .feedback-message {
-            font-size: 0.6rem;
-            padding: 0.05rem 0.4rem;
-            border-radius: 20px;
-            font-weight: 400;
-            transition: all 0.15s;
-            white-space: nowrap;
-            flex-shrink: 0;
-            min-width: 20px;
-            text-align: center;
-            touch-action: manipulation;
-            cursor: pointer;
-        }
-
-        .feedback-message.empty {
-            color: var(--text-muted);
-            opacity: 0.3;
-        }
-
-        .feedback-message.correct {
-            color: var(--text-correct);
-            background: var(--bg-success);
-            font-weight: 500;
-        }
-
-        .feedback-message.wrong {
-            color: var(--text-wrong);
-            background: var(--bg-error);
-            font-weight: 500;
-        }
-
-        .feedback-message.suggestion {
-            color: var(--text-muted);
-            background: var(--bg-number);
-            font-size: 0.5rem;
-            max-width: 150px;
-            white-space: nowrap;
-            overflow: hidden;
-            text-overflow: ellipsis;
-            padding: 0.05rem 0.3rem;
-        }
-
-        /* ===== FOOTER ===== */
-        .footer-tip {
-            border-top: 2px solid var(--border-footer);
-            padding-top: 0.4rem;
-            margin-top: 0.3rem;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 0.3rem;
-            flex-shrink: 0;
-            padding-bottom: var(--safe-bottom);
-        }
-
-        .footer-buttons {
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            align-items: center;
-            gap: 0.25rem 0.5rem;
-        }
-
-        .footer-tip button {
+            min-width: 200px;
+            padding: 0.5rem 0.2rem;
+            border: none;
+            border-bottom: 2px solid #a8c4d9;
             background: transparent;
-            border: 1.5px solid var(--border-footer);
-            padding: 0.15rem 0.7rem;
-            border-radius: 40px;
-            color: var(--text-secondary);
-            font-weight: 500;
-            cursor: pointer;
+            font-size: 1.05rem;
+            font-family: 'Courier New', monospace;
+            color: #0b2b40;
             transition: 0.15s;
-            font-size: 0.6rem;
-            font-family: inherit;
-            touch-action: manipulation;
-            -webkit-tap-highlight-color: transparent;
+            outline: none;
         }
 
-        .footer-tip button:active {
-            transform: scale(0.95);
-            background: var(--bg-footer-btn-hover);
+        .write-line input:focus {
+            border-bottom: 2px solid #1f4e73;
+            background: rgba(31, 78, 115, 0.04);
+        }
+
+        .write-line input.correct-input {
+            border-bottom: 2px solid #2e7d32;
+            color: #1e7b2b;
+            background: rgba(46, 125, 50, 0.06);
+        }
+
+        .write-line input.incorrect-input {
+            border-bottom: 2px solid #c62828;
+            color: #b32b2b;
+            background: rgba(198, 40, 40, 0.05);
+        }
+
+        .check-btn {
+            background: #1f4e73;
+            border: none;
+            color: white;
+            font-weight: 600;
+            padding: 0.6rem 1.3rem;
+            border-radius: 30px;
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: 0.15s;
+            white-space: nowrap;
+            flex-shrink: 0;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .check-btn:hover {
+            background: #0e3552;
+        }
+
+        .check-btn:active {
+            transform: scale(0.97);
+        }
+
+        .feedback {
+            font-size: 0.9rem;
+            font-weight: 500;
+            min-width: 120px;
+            display: flex;
+            align-items: center;
+            gap: 0.2rem;
+            flex-shrink: 0;
+        }
+
+        .feedback.correct {
+            color: #1e7b2b;
+        }
+
+        .feedback.incorrect {
+            color: #b32b2b;
+        }
+
+        .feedback.neutral {
+            color: #6d7e8b;
+        }
+
+        .buttons-area {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 2rem;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .reset-btn {
+            background: #ffffff;
+            border: 2px solid #b0c9db;
+            color: #1f4e73;
+            font-weight: 600;
+            padding: 0.8rem 1.8rem;
+            border-radius: 40px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: 0.2s;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+        }
+
+        .reset-btn:hover {
+            background: #e3effa;
+            border-color: #1f4e73;
         }
 
         .next-btn {
-            background: #2a4a7a !important;
-            border: 2px solid #2a4a7a !important;
-            color: #ffffff !important;
-            padding: 0.15rem 1rem !important;
-            font-weight: 600 !important;
-            min-width: 50px;
+            background: #1f4e73;
+            color: white;
+            font-weight: 600;
+            padding: 0.85rem 2rem;
+            border-radius: 40px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: 0.2s;
+            box-shadow: 0 6px 15px rgba(31, 78, 115, 0.3);
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .next-btn:hover {
+            background: #0e3552;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(31, 78, 115, 0.4);
         }
 
         .next-btn:active {
-            transform: scale(0.95) !important;
+            transform: translateY(0);
         }
 
-        .next-btn.completed {
-            background: #1f7a3e !important;
-            border-color: #1f7a3e !important;
-        }
-
-        .footer-info {
-            font-size: 0.55rem;
-            color: var(--text-muted);
+        .note {
             text-align: center;
-            line-height: 1.4;
+            margin-top: 1.2rem;
+            font-size: 0.9rem;
+            color: #436684;
+            font-style: italic;
         }
 
-        /* ============================================================ */
-        /* ===== RESPONSIVE ===== */
-        /* ============================================================ */
-
-        @media (max-width: 400px) {
-            body { padding: 0.2rem; }
-            .container { padding: 0.4rem 0.5rem; border-radius: 0.6rem; }
-            h1 { font-size: 0.9rem; }
-            h1 small { font-size: 0.5rem; padding: 0.05rem 0.4rem; }
-            .stats-badge { font-size: 0.5rem; padding: 0.05rem 0.4rem; }
-            .theme-toggle { font-size: 0.5rem; padding: 0.05rem 0.4rem; }
-            .section-title { font-size: 0.7rem; margin: 0.3rem 0 0.2rem 0; }
-            .section-title span { font-size: 0.5rem; padding: 0.05rem 0.4rem; }
-            .practice-card { padding: 0.2rem 0.3rem; border-radius: 0.4rem; gap: 0.15rem; }
-            .number-badge { width: 1rem; height: 1rem; font-size: 0.45rem; }
-            .prompt-text { font-size: 0.6rem; min-width: 40px; flex: 0 1 50px; padding: 0.05rem 0.2rem; }
-            .prompt-text .es { font-size: 0.55rem; }
-            .audio-btn { width: 1.2rem; height: 1.2rem; font-size: 0.6rem; }
-            .writing-area { min-width: 80px; gap: 0.15rem; }
-            .writing-area textarea { font-size: 0.6rem; padding: 0.15rem 0.3rem; min-height: 28px; max-height: 50px; min-width: 50px; }
-            .btn-check { font-size: 0.5rem; height: 1.4rem; padding: 0.05rem 0.4rem; }
-            .feedback-message { font-size: 0.5rem; padding: 0.05rem 0.3rem; min-width: 15px; }
-            .feedback-message.suggestion { font-size: 0.45rem; max-width: 100px; }
-            .footer-tip button { font-size: 0.5rem; padding: 0.1rem 0.5rem; }
-            .next-btn { padding: 0.1rem 0.7rem !important; min-width: 40px; font-size: 0.5rem !important; }
-            .footer-info { font-size: 0.5rem; }
-            .word-grid { grid-template-columns: repeat(auto-fill, minmax(80px, 1fr)); gap: 0.2rem; padding: 0.3rem; }
-            .word-item { font-size: 0.55rem; padding: 0.1rem 0.3rem; }
-            .word-item .es { font-size: 0.5rem; }
-        }
-
-        @media (min-width: 401px) and (max-width: 600px) {
-            body { padding: 0.3rem; }
-            .container { padding: 0.5rem 0.6rem; border-radius: 0.8rem; }
-            h1 { font-size: 1rem; }
-            .practice-card { padding: 0.25rem 0.4rem; gap: 0.2rem; }
-            .writing-area textarea { min-height: 30px; font-size: 0.65rem; }
-            .btn-check { height: 1.5rem; font-size: 0.5rem; }
-            .prompt-text { font-size: 0.65rem; flex: 0 1 60px; }
-            .word-grid { grid-template-columns: repeat(auto-fill, minmax(90px, 1fr)); }
-        }
-
-        @media (min-width: 601px) and (max-width: 900px) {
-            .container { padding: 0.8rem 1.2rem; }
-            h1 { font-size: 1.2rem; }
-            .practice-card { padding: 0.4rem 0.7rem; gap: 0.3rem; }
-            .writing-area textarea { min-height: 34px; font-size: 0.75rem; }
-            .prompt-text { font-size: 0.8rem; flex: 0 1 100px; }
-            .audio-btn { width: 1.6rem; height: 1.6rem; font-size: 0.8rem; }
-        }
-
-        @media (min-width: 901px) {
-            .container { padding: 1.2rem 2rem; }
-            h1 { font-size: 1.5rem; }
-            .practice-card { padding: 0.5rem 1rem; gap: 0.4rem 0.8rem; }
-            .writing-area textarea { font-size: 0.85rem; min-height: 38px; max-height: 80px; }
-            .prompt-text { font-size: 0.9rem; flex: 0 1 130px; }
-            .btn-check { font-size: 0.7rem; height: 1.8rem; padding: 0.15rem 0.8rem; }
-            .feedback-message { font-size: 0.7rem; }
-            .feedback-message.suggestion { font-size: 0.6rem; max-width: 300px; }
-            .section-title { font-size: 1rem; }
-            .stats-badge { font-size: 0.7rem; padding: 0.15rem 0.8rem; }
-            .audio-btn { width: 1.8rem; height: 1.8rem; font-size: 0.9rem; }
-            .word-grid { grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); padding: 0.6rem 0.8rem; }
-            .word-item { font-size: 0.75rem; padding: 0.2rem 0.5rem; }
-        }
-
-        @media (min-width: 1200px) {
-            .container { padding: 1.5rem 2.5rem; }
+        @media (max-width: 700px) {
             h1 { font-size: 1.8rem; }
-            .practice-card { padding: 0.6rem 1.2rem; }
-            .writing-area textarea { font-size: 0.95rem; min-height: 42px; }
-            .prompt-text { font-size: 1rem; flex: 0 1 160px; }
-            .practice-grid { gap: 0.5rem; }
-            .audio-btn { width: 2rem; height: 2rem; font-size: 1rem; }
-        }
-
-        @media (max-height: 500px) and (orientation: landscape) {
-            .container { padding: 0.3rem 0.6rem; border-radius: 0.5rem; }
-            .header-row { padding-bottom: 0.2rem; margin-bottom: 0.2rem; }
-            h1 { font-size: 0.8rem; }
-            .practice-card { padding: 0.15rem 0.3rem; gap: 0.15rem; }
-            .writing-area textarea { min-height: 24px; max-height: 40px; font-size: 0.6rem; padding: 0.1rem 0.3rem; }
-            .btn-check { height: 1.3rem; font-size: 0.45rem; padding: 0.05rem 0.4rem; }
-            .feedback-message { font-size: 0.5rem; }
-            .section-title { font-size: 0.65rem; margin: 0.2rem 0 0.15rem 0; }
-            .number-badge { width: 1rem; height: 1rem; font-size: 0.4rem; }
-            .prompt-text { font-size: 0.6rem; flex: 0 1 50px; }
-            .footer-tip { padding-top: 0.2rem; margin-top: 0.2rem; }
-            .footer-tip button { font-size: 0.5rem; padding: 0.1rem 0.5rem; }
-            .footer-info { font-size: 0.45rem; }
-            .stats-badge { font-size: 0.5rem; padding: 0.05rem 0.4rem; }
-            .audio-btn { width: 1.1rem; height: 1.1rem; font-size: 0.55rem; }
-            .word-grid { grid-template-columns: repeat(auto-fill, minmax(70px, 1fr)); gap: 0.15rem; padding: 0.2rem 0.3rem; }
-            .word-item { font-size: 0.5rem; padding: 0.05rem 0.2rem; }
-            .word-item .es { font-size: 0.45rem; }
+            .sentences-section { padding: 1.5rem 1.2rem; }
+            .write-line { padding-left: 0; }
+            .write-line input { width: 100%; }
+            .feedback { min-width: auto; }
+            .vocab-section { padding: 1.3rem; }
+            .buttons-area {
+                flex-direction: column;
+                align-items: stretch;
+            }
+            .reset-btn, .next-btn {
+                justify-content: center;
+                text-align: center;
+            }
         }
     </style>
 </head>
 <body>
-
 <div class="container">
-    <!-- HEADER -->
-    <div class="header-row">
-        <h1>
-            ✍️ English
-            <small>Lección 2</small>
-        </h1>
-        <div class="header-right">
-            <span class="stats-badge" id="progressStats">0/12</span>
-            <button class="theme-toggle" id="themeToggle">
-                <span id="themeIcon">☀️</span>
-                <span id="themeLabel">Claro</span>
-            </button>
-        </div>
+    <h1>🇬🇧 Aprende Inglés Básico</h1>
+    <div class="subtitle">Lección 2 · Vocabulario y frases · Escucha en inglés y escribe</div>
+
+    <!-- Sección de vocabulario -->
+    <div class="vocab-section">
+        <h2>Vocabulario (clic para escuchar)</h2>
+        <div class="vocab-grid" id="vocabGrid"></div>
     </div>
 
-    <!-- CONTENIDO SCROLLABLE -->
-    <div class="content-scroll">
-        <!-- VOCABULARIO -->
-        <div class="section-title">
-            📚 Vocabulario
-            <span>18 palabras</span>
-        </div>
-        <div class="word-grid" id="vocabGrid">
-            <div class="word-item"><span class="en">Mr.</span> <span class="sep">-</span> <span class="es">señor</span></div>
-            <div class="word-item"><span class="en">Miss</span> <span class="sep">-</span> <span class="es">señorita</span></div>
-            <div class="word-item"><span class="en">Mrs.</span> <span class="sep">-</span> <span class="es">señora</span></div>
-            <div class="word-item"><span class="en">lost</span> <span class="sep">-</span> <span class="es">perdido</span></div>
-            <div class="word-item"><span class="en">pretty</span> <span class="sep">-</span> <span class="es">bonito</span></div>
-            <div class="word-item"><span class="en">here</span> <span class="sep">-</span> <span class="es">aquí</span></div>
-            <div class="word-item"><span class="en">today</span> <span class="sep">-</span> <span class="es">hoy</span></div>
-            <div class="word-item"><span class="en">sick</span> <span class="sep">-</span> <span class="es">enfermo</span></div>
-            <div class="word-item"><span class="en">very</span> <span class="sep">-</span> <span class="es">muy</span></div>
-            <div class="word-item"><span class="en">happy</span> <span class="sep">-</span> <span class="es">feliz</span></div>
-            <div class="word-item"><span class="en">there</span> <span class="sep">-</span> <span class="es">allí</span></div>
-            <div class="word-item"><span class="en">now</span> <span class="sep">-</span> <span class="es">ahora</span></div>
-            <div class="word-item"><span class="en">ready</span> <span class="sep">-</span> <span class="es">listo</span></div>
-            <div class="word-item"><span class="en">young</span> <span class="sep">-</span> <span class="es">joven</span></div>
-            <div class="word-item"><span class="en">in</span> <span class="sep">-</span> <span class="es">en</span></div>
-            <div class="word-item"><span class="en">too much</span> <span class="sep">-</span> <span class="es">demasiado</span></div>
-            <div class="word-item"><span class="en">noise</span> <span class="sep">-</span> <span class="es">ruido</span></div>
-            <div class="word-item"><span class="en">to be</span> <span class="sep">-</span> <span class="es">ser/estar</span></div>
-        </div>
+    <!-- Sección de frases -->
+    <div class="sentences-section">
+        <h2>Escucha en inglés y escribe la frase</h2>
+        <div id="sentencesContainer"></div>
 
-        <!-- FRASES -->
-        <div class="section-title">
-            🗣️ Frases para traducir
-            <span>12 oraciones</span>
-            <span class="stats-badge" id="sentenceStats">0/12</span>
+        <div class="buttons-area">
+            <button class="reset-btn" id="resetAllBtn">⟲ Reiniciar</button>
+            <a href="leccion3.html" class="next-btn">Siguiente Lección →</a>
         </div>
-        <div class="practice-grid" id="sentenceContainer"></div>
-    </div>
-
-    <!-- FOOTER -->
-    <div class="footer-tip">
-        <div class="footer-buttons">
-            <button id="clearAllBtn">🧹 Limpiar</button>
-            <button id="showAllAnswersBtn">👀 Ver</button>
-            <button id="checkAllBtn">✅ Verificar</button>
-            <button id="playAllAudioBtn">🔊 Todo</button>
-            <button class="next-btn" id="nextBtn">▶️</button>
-        </div>
-        <div class="footer-info">
-            🔊 Click en 🎵 para escuchar · Enter verifica · Doble tap en feedback
-        </div>
+        <div class="note">💡 La frase está en español. Presiona 🔊 para escucharla en inglés y escríbela en el renglón.</div>
     </div>
 </div>
 
 <script>
-    (function() {
-        // ===== FRASES DE LA LECCIÓN 2 =====
-        const sentences = [
-            { spanish: "yo soy la señora caron", english: "I am Mrs. Caron." },
-            { spanish: "la señorita maria esta aqui hoy", english: "Miss Maria is here today." },
-            { spanish: "ella es muy bonita", english: "She is very pretty." },
-            { spanish: "helen y juan estan enfermos", english: "Helen and Juan are sick." },
-            { spanish: "ellos son el señor y la señora perez", english: "They are Mr. and Mrs. Perez." },
-            { spanish: "tu estas contento hoy", english: "You are happy today." },
-            { spanish: "el es muy joven", english: "He is very young." },
-            { spanish: "juan y enrique estan perdidos alla", english: "Juan and Enrique are lost there." },
-            { spanish: "yo estoy listo", english: "I am ready." },
-            { spanish: "estamos aqui ahora", english: "We are here now." },
-            { spanish: "enrique vive en miami", english: "Enrique lives in Miami." },
-            { spanish: "nosotros oimos demasiado ruido", english: "We hear too much noise." }
-        ];
+    // ====== VOZ EN INGLÉS ======
+    let englishVoice = null;
 
-        // ===== ESTADO =====
-        let sentenceState = new Array(sentences.length).fill(false);
-        let sentenceCorrect = 0;
+    function loadVoices() {
+        const voices = window.speechSynthesis.getVoices();
+        englishVoice = voices.find(v => v.lang === 'en-US' && v.name.includes('Google'))
+                    || voices.find(v => v.lang === 'en-US')
+                    || voices.find(v => v.lang.startsWith('en-GB'))
+                    || voices.find(v => v.lang.startsWith('en'));
+    }
 
-        // ===== REFERENCIAS =====
-        const sentenceContainer = document.getElementById('sentenceContainer');
-        const sentenceStats = document.getElementById('sentenceStats');
-        const progressStats = document.getElementById('progressStats');
-        const themeToggle = document.getElementById('themeToggle');
-        const themeIcon = document.getElementById('themeIcon');
-        const themeLabel = document.getElementById('themeLabel');
-        const clearAllBtn = document.getElementById('clearAllBtn');
-        const showAllBtn = document.getElementById('showAllAnswersBtn');
-        const checkAllBtn = document.getElementById('checkAllBtn');
-        const playAllBtn = document.getElementById('playAllAudioBtn');
-        const nextBtn = document.getElementById('nextBtn');
+    if (typeof speechSynthesis !== 'undefined') {
+        loadVoices();
+        speechSynthesis.onvoiceschanged = loadVoices;
+    }
 
-        let allCards = [];
-        let allAudioButtons = [];
-        let speechSynth = window.speechSynthesis;
-        let currentUtterance = null;
-
-        // ===== FUNCIÓN DE AUDIO =====
-        function speakText(text, callback) {
-            if (!speechSynth) {
-                console.warn('Speech Synthesis no soportado');
-                if (callback) callback();
-                return;
-            }
-
-            if (speechSynth.speaking) {
-                speechSynth.cancel();
-            }
-
-            const utterance = new SpeechSynthesisUtterance(text);
-            utterance.lang = 'en-US';
-            utterance.rate = 0.85;
-            utterance.pitch = 1;
-            utterance.volume = 1;
-
-            const voices = speechSynth.getVoices();
-            const enVoice = voices.find(v => v.lang.startsWith('en'));
-            if (enVoice) {
-                utterance.voice = enVoice;
-            }
-
-            if (callback) {
-                utterance.onend = callback;
-                utterance.onerror = callback;
-            }
-
-            currentUtterance = utterance;
-            speechSynth.speak(utterance);
+    function speak(text, buttonElement) {
+        if (!('speechSynthesis' in window)) {
+            alert('Tu navegador no soporta la síntesis de voz.');
+            return;
         }
+        speechSynthesis.cancel();
+        const utterance = new SpeechSynthesisUtterance(text);
+        utterance.lang = 'en-US';
+        utterance.rate = 0.85;
+        utterance.pitch = 1;
+        utterance.volume = 1;
+        if (englishVoice) utterance.voice = englishVoice;
+        if (buttonElement) {
+            buttonElement.classList.add('playing');
+            utterance.onend = () => buttonElement.classList.remove('playing');
+            utterance.onerror = () => buttonElement.classList.remove('playing');
+        }
+        speechSynthesis.speak(utterance);
+    }
 
-        // ===== CREAR TARJETA CON AUDIO =====
-        function createPracticeCard(item, index, state, updateStats) {
-            const card = document.createElement('div');
-            card.className = 'practice-card';
-            card.dataset.index = index;
+    // ====== VOCABULARIO LECCIÓN 2 ======
+    const vocabulary = [
+        "Mr.", "Miss", "Mrs.", "lost", "pretty", "here", "today",
+        "sick", "very", "happy", "there", "now", "ready", "young",
+        "in", "too much", "noise", "to be"
+    ];
 
-            const num = document.createElement('div');
-            num.className = 'number-badge';
-            num.textContent = index + 1;
+    const vocabGrid = document.getElementById('vocabGrid');
+    vocabulary.forEach(word => {
+        const item = document.createElement('span');
+        item.className = 'vocab-item';
+        item.innerHTML = `${word} <span class="speaker-icon">🔊</span>`;
+        item.title = 'Clic para escuchar';
+        item.addEventListener('click', () => speak(word, item));
+        vocabGrid.appendChild(item);
+    });
 
-            const prompt = document.createElement('div');
-            prompt.className = 'prompt-text';
-            
+    // ====== FRASES LECCIÓN 2 ======
+    // Frase en español (lo que ve el usuario)
+    const spanishSentences = [
+        "Yo soy la señora Caron",
+        "La señorita María está aquí hoy",
+        "Ella es muy bonita",
+        "Helen y Juana están enfermas",
+        "Ellos son el señor y la señora Pérez",
+        "Tú estás feliz hoy",
+        "Él es muy joven",
+        "Juan y Erique están perdidos allí",
+        "Yo estoy listo",
+        "Nosotros estamos aquí ahora",
+        "Enrique vive en Miami",
+        "Nosotros oímos demasiado ruido"
+    ];
+
+    // Respuesta correcta en inglés (lo que el usuario debe escribir)
+    const correctAnswers = [
+        "i am mrs caron",
+        "miss maria is here today",
+        "she is very pretty",
+        "helen and juana are sick",
+        "they are mr and mrs perez",
+        "you are happy today",
+        "he is very young",
+        "juan and erique are lost there",
+        "i am ready",
+        "we are here now",
+        "enrique lives in miami",
+        "we hear too much noise"
+    ];
+
+    // Texto que se reproduce en audio (la frase en inglés)
+    const audioPhrases = correctAnswers;
+
+    const normalizedCorrect = correctAnswers.map(ans => ans.toLowerCase().trim());
+
+    const container = document.getElementById('sentencesContainer');
+    const resetBtn = document.getElementById('resetAllBtn');
+
+    function normalizeInput(str) {
+        return str.toLowerCase().trim().replace(/\s+/g, ' ');
+    }
+
+    function renderSentences() {
+        container.innerHTML = '';
+        spanishSentences.forEach((spanishSentence, index) => {
+            const block = document.createElement('div');
+            block.className = 'sentence-block';
+            block.dataset.index = index;
+
+            const promptLine = document.createElement('div');
+            promptLine.className = 'sentence-prompt-line';
+
+            const numSpan = document.createElement('span');
+            numSpan.className = 'sentence-number';
+            numSpan.textContent = index + 1;
+
+            const promptSpan = document.createElement('span');
+            promptSpan.className = 'sentence-prompt';
+            promptSpan.textContent = spanishSentence;
+
             const audioBtn = document.createElement('button');
             audioBtn.className = 'audio-btn';
-            audioBtn.textContent = '🎵';
-            audioBtn.setAttribute('aria-label', `Escuchar "${item.english}"`);
-            
-            let isPlaying = false;
-            audioBtn.addEventListener('click', function(e) {
-                e.stopPropagation();
-                if (isPlaying) {
-                    if (speechSynth.speaking) speechSynth.cancel();
-                    isPlaying = false;
-                    this.classList.remove('playing');
-                    return;
-                }
-                
-                this.classList.add('playing');
-                isPlaying = true;
-                
-                speakText(item.english, () => {
-                    this.classList.remove('playing');
-                    isPlaying = false;
-                });
-            });
+            audioBtn.innerHTML = '🔊';
+            audioBtn.title = 'Escuchar en inglés';
+            audioBtn.addEventListener('click', () => speak(audioPhrases[index], audioBtn));
 
-            audioBtn.addEventListener('touchstart', function(e) {
-                e.preventDefault();
-                this.click();
-            }, { passive: true });
+            const listenHint = document.createElement('span');
+            listenHint.className = 'listen-hint';
+            listenHint.textContent = '(escucha en inglés)';
 
-            const textSpan = document.createElement('span');
-            textSpan.className = 'es';
-            textSpan.textContent = item.spanish;
+            promptLine.appendChild(numSpan);
+            promptLine.appendChild(promptSpan);
+            promptLine.appendChild(audioBtn);
+            promptLine.appendChild(listenHint);
 
-            prompt.appendChild(audioBtn);
-            prompt.appendChild(textSpan);
+            const writeLine = document.createElement('div');
+            writeLine.className = 'write-line';
 
-            const area = document.createElement('div');
-            area.className = 'writing-area';
-
-            const textarea = document.createElement('textarea');
-            textarea.placeholder = 'traduce...';
-            textarea.rows = 1;
-            textarea.autocomplete = 'off';
-            textarea.spellcheck = false;
-            textarea.inputMode = 'text';
-
-            textarea.addEventListener('input', function() {
-                this.style.height = 'auto';
-                this.style.height = this.scrollHeight + 'px';
-            });
+            const input = document.createElement('input');
+            input.type = 'text';
+            input.placeholder = 'escribe en inglés...';
+            input.id = `input-${index}`;
+            input.setAttribute('autocomplete', 'off');
+            input.setAttribute('spellcheck', 'false');
 
             const checkBtn = document.createElement('button');
-            checkBtn.className = 'btn-check';
-            checkBtn.textContent = '✓';
+            checkBtn.className = 'check-btn';
+            checkBtn.textContent = '✓ Verificar';
+            checkBtn.dataset.index = index;
 
-            const feedback = document.createElement('div');
-            feedback.className = 'feedback-message empty';
-            feedback.textContent = '·';
+            const feedback = document.createElement('span');
+            feedback.className = 'feedback neutral';
+            feedback.id = `feedback-${index}`;
+            feedback.textContent = '';
 
-            let suggestionEl = null;
+            writeLine.appendChild(input);
+            writeLine.appendChild(checkBtn);
+            writeLine.appendChild(feedback);
 
-            allAudioButtons.push(audioBtn);
+            block.appendChild(promptLine);
+            block.appendChild(writeLine);
 
-            function verify() {
-                const userAnswer = textarea.value.trim();
-                const correctAnswer = item.english;
+            container.appendChild(block);
 
-                if (userAnswer === '') {
-                    feedback.textContent = '✏️';
-                    feedback.className = 'feedback-message empty';
-                    textarea.classList.remove('correct', 'wrong');
-                    card.classList.remove('correct', 'wrong');
-                    if (suggestionEl) { suggestionEl.remove(); suggestionEl = null; }
-                    return;
-                }
+            checkBtn.addEventListener('click', () => checkAnswer(index, input, feedback));
 
-                const result = getCorrections(userAnswer, correctAnswer);
-                textarea.classList.remove('correct', 'wrong');
-                card.classList.remove('correct', 'wrong');
-                feedback.className = 'feedback-message';
-
-                if (suggestionEl) { suggestionEl.remove(); suggestionEl = null; }
-
-                if (result.isCorrect) {
-                    feedback.textContent = '✅';
-                    feedback.className = 'feedback-message correct';
-                    textarea.classList.add('correct');
-                    card.classList.add('correct');
-                    if (!state[index]) {
-                        state[index] = true;
-                        updateStats();
-                    }
-                } else {
-                    feedback.textContent = '❌';
-                    feedback.className = 'feedback-message wrong';
-                    textarea.classList.add('wrong');
-                    card.classList.add('wrong');
-                    if (state[index]) {
-                        state[index] = false;
-                        updateStats();
-                    }
-
-                    if (result.suggestions.length > 0) {
-                        suggestionEl = document.createElement('div');
-                        suggestionEl.className = 'feedback-message suggestion';
-                        suggestionEl.textContent = result.suggestions[0];
-                        area.appendChild(suggestionEl);
-                    }
-                }
-            }
-
-            checkBtn.addEventListener('click', verify);
-            checkBtn.addEventListener('touchstart', function(e) {
-                if (e.touches.length === 1) {
-                    setTimeout(verify, 100);
-                }
-            }, { passive: true });
-
-            textarea.addEventListener('keydown', function(e) {
-                if (e.key === 'Enter' && !e.shiftKey) {
+            input.addEventListener('keypress', (e) => {
+                if (e.key === 'Enter') {
                     e.preventDefault();
-                    verify();
+                    checkAnswer(index, input, feedback);
                 }
             });
 
-            let lastTap = 0;
-            feedback.addEventListener('click', function(e) {
-                const now = Date.now();
-                if (now - lastTap < 300) {
-                    this.textContent = `📖 ${item.english}`;
-                    this.className = 'feedback-message';
-                    this.style.color = 'var(--text-primary)';
-                }
-                lastTap = now;
-            });
-
-            area.appendChild(textarea);
-            area.appendChild(checkBtn);
-            area.appendChild(feedback);
-
-            card.appendChild(num);
-            card.appendChild(prompt);
-            card.appendChild(area);
-
-            const clear = () => {
-                textarea.value = '';
-                textarea.style.height = 'auto';
-                textarea.classList.remove('correct', 'wrong');
-                card.classList.remove('correct', 'wrong');
-                feedback.textContent = '·';
-                feedback.className = 'feedback-message empty';
-                feedback.style.color = '';
-                if (suggestionEl) { suggestionEl.remove(); suggestionEl = null; }
-                if (state[index]) {
-                    state[index] = false;
-                    updateStats();
-                }
-            };
-
-            const showAnswer = () => {
-                textarea.value = item.english;
-                textarea.style.height = 'auto';
-                textarea.style.height = textarea.scrollHeight + 'px';
-                verify();
-            };
-
-            const playAudio = () => {
-                speakText(item.english);
-            };
-
-            return { card, clear, showAnswer, verify, playAudio };
-        }
-
-        // ===== CORRECCIÓN =====
-        function getCorrections(userInput, correctAnswer) {
-            const normalize = (str) => str.toLowerCase().replace(/[^a-z0-9 ]/g, '').replace(/\s+/g, ' ').trim();
-            const userNorm = normalize(userInput);
-            const correctNorm = normalize(correctAnswer);
-
-            if (userNorm === correctNorm) {
-                return { isCorrect: true, suggestions: [] };
-            }
-
-            if (userNorm === '') {
-                return { isCorrect: false, suggestions: ['✏️ Escribe algo'] };
-            }
-
-            const suggestions = [];
-            const userWords = userNorm.split(' ');
-            const correctWords = correctNorm.split(' ');
-
-            if (userWords.length < correctWords.length) {
-                const missing = correctWords.slice(userWords.length);
-                suggestions.push(`Falta: "${missing.join(' ')}"`);
-            }
-
-            if (userWords.length > correctWords.length) {
-                const extra = userWords.slice(correctWords.length);
-                suggestions.push(`Sobra: "${extra.join(' ')}"`);
-            }
-
-            correctWords.forEach((cw, i) => {
-                if (i < userWords.length && userWords[i] !== cw) {
-                    if (getLevenshteinDistance(userWords[i], cw) <= 2) {
-                        suggestions.push(`"${userWords[i]}" → "${cw}"`);
-                    }
-                }
-            });
-
-            if (suggestions.length === 0 && userNorm !== correctNorm) {
-                suggestions.push(`Correcto: "${correctAnswer}"`);
-            }
-
-            return { isCorrect: false, suggestions };
-        }
-
-        function getLevenshteinDistance(a, b) {
-            const matrix = [];
-            for (let i = 0; i <= b.length; i++) matrix[i] = [i];
-            for (let j = 0; j <= a.length; j++) matrix[0][j] = j;
-            for (let i = 1; i <= b.length; i++) {
-                for (let j = 1; j <= a.length; j++) {
-                    matrix[i][j] = b[i-1] === a[j-1] 
-                        ? matrix[i-1][j-1] 
-                        : Math.min(matrix[i-1][j-1] + 1, matrix[i][j-1] + 1, matrix[i-1][j] + 1);
-                }
-            }
-            return matrix[b.length][a.length];
-        }
-
-        // ===== RENDERIZAR =====
-        function renderAll() {
-            sentenceContainer.innerHTML = '';
-            allCards = [];
-            allAudioButtons = [];
-
-            sentences.forEach((item, i) => {
-                const { card, clear, showAnswer, verify, playAudio } = createPracticeCard(
-                    item, i, sentenceState, updateSentenceStats
-                );
-                sentenceContainer.appendChild(card);
-                allCards.push({ clear, showAnswer, verify, playAudio });
-            });
-
-            updateSentenceStats();
-            updateProgress();
-
-            if (speechSynth) {
-                speechSynth.getVoices();
-                speechSynth.onvoiceschanged = () => {
-                    speechSynth.getVoices();
-                };
-            }
-        }
-
-        // ===== ACTUALIZAR ESTADÍSTICAS =====
-        function updateSentenceStats() {
-            sentenceCorrect = sentenceState.filter(v => v).length;
-            sentenceStats.textContent = `${sentenceCorrect}/12`;
-            updateProgress();
-        }
-
-        function updateProgress() {
-            progressStats.textContent = `${sentenceCorrect}/12`;
-            nextBtn.classList.toggle('completed', sentenceCorrect === sentences.length);
-            nextBtn.textContent = sentenceCorrect === sentences.length ? '✅' : '▶️';
-        }
-
-        // ===== FUNCIONES GLOBALES =====
-        function clearAll() {
-            if (speechSynth.speaking) speechSynth.cancel();
-            allCards.forEach(c => c.clear());
-            sentenceState.fill(false);
-            updateSentenceStats();
-        }
-
-        function showAllAnswers() {
-            allCards.forEach(c => c.showAnswer());
-        }
-
-        function checkAll() {
-            allCards.forEach(c => c.verify());
-        }
-
-        function playAllAudio() {
-            if (speechSynth.speaking) {
-                speechSynth.cancel();
-                return;
-            }
-
-            let index = 0;
-            const allTexts = sentences.map(item => item.english);
-
-            function playNext() {
-                if (index >= allTexts.length) {
-                    return;
-                }
-                speakText(allTexts[index], () => {
-                    index++;
-                    playNext();
-                });
-            }
-
-            playNext();
-        }
-
-        // ===== TEMA =====
-        function setTheme(theme) {
-            document.documentElement.setAttribute('data-theme', theme);
-            localStorage.setItem('theme', theme);
-            themeIcon.textContent = theme === 'dark' ? '🌙' : '☀️';
-            themeLabel.textContent = theme === 'dark' ? 'Oscuro' : 'Claro';
-        }
-
-        function toggleTheme() {
-            const current = document.documentElement.getAttribute('data-theme');
-            setTheme(current === 'dark' ? 'light' : 'dark');
-        }
-
-        function loadTheme() {
-            const saved = localStorage.getItem('theme');
-            const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-            setTheme(saved || (prefersDark ? 'dark' : 'light'));
-        }
-
-        // ===== INICIALIZAR =====
-        renderAll();
-        loadTheme();
-
-        themeToggle.addEventListener('click', toggleTheme);
-        clearAllBtn.addEventListener('click', clearAll);
-        showAllBtn.addEventListener('click', showAllAnswers);
-        checkAllBtn.addEventListener('click', checkAll);
-        playAllBtn.addEventListener('click', playAllAudio);
-
-        nextBtn.addEventListener('click', function() {
-            if (sentenceCorrect === sentences.length) {
-                alert('🎉 ¡Felicidades! Has completado todos los ejercicios.');
-            } else {
-                alert(`📝 Te faltan ${sentences.length - sentenceCorrect} ejercicios.`);
-            }
-        });
-
-        window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
-            if (!localStorage.getItem('theme')) setTheme(e.matches ? 'dark' : 'light');
-        });
-
-        window.addEventListener('orientationchange', function() {
-            document.querySelectorAll('textarea').forEach(el => {
-                el.style.height = 'auto';
-                el.style.height = el.scrollHeight + 'px';
+            input.addEventListener('input', () => {
+                input.classList.remove('correct-input', 'incorrect-input');
+                feedback.textContent = '';
+                feedback.className = 'feedback neutral';
             });
         });
+    }
 
-        console.log('✅ Lección 2 - English Writing Practice');
-        console.log(`🗣️ ${sentences.length} frases para traducir`);
-        console.log('📚 Vocabulario: Mr., Miss, Mrs., lost, pretty, here, today, sick, very, happy, there, now, ready, young, in, too much, noise, to be');
-    })();
+    function checkAnswer(index, input, feedbackElement) {
+        const userAnswer = input.value;
+        const normalizedUser = normalizeInput(userAnswer);
+        const correct = normalizedCorrect[index];
+
+        if (normalizedUser === '') {
+            feedbackElement.textContent = '✏️ Escribe algo';
+            feedbackElement.className = 'feedback incorrect';
+            input.classList.remove('correct-input', 'incorrect-input');
+            input.classList.add('incorrect-input');
+            return;
+        }
+
+        if (normalizedUser === correct) {
+            feedbackElement.textContent = '✅ ¡Correcto!';
+            feedbackElement.className = 'feedback correct';
+            input.classList.remove('incorrect-input');
+            input.classList.add('correct-input');
+        } else {
+            feedbackElement.textContent = '❌ Intenta de nuevo';
+            feedbackElement.className = 'feedback incorrect';
+            input.classList.remove('correct-input');
+            input.classList.add('incorrect-input');
+        }
+    }
+
+    function resetAll() {
+        spanishSentences.forEach((_, index) => {
+            const input = document.getElementById(`input-${index}`);
+            const feedback = document.getElementById(`feedback-${index}`);
+            if (input) {
+                input.value = '';
+                input.classList.remove('correct-input', 'incorrect-input');
+            }
+            if (feedback) {
+                feedback.textContent = '';
+                feedback.className = 'feedback neutral';
+            }
+        });
+    }
+
+    renderSentences();
+    resetBtn.addEventListener('click', resetAll);
 </script>
 </body>
 </html>
