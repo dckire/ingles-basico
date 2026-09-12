@@ -168,7 +168,6 @@
             font-weight: 600;
             color: #10344d;
             font-size: 1.1rem;
-            font-family: 'Courier New', monospace;
         }
 
         /* Botón de audio */
@@ -210,6 +209,14 @@
         @keyframes pulse {
             0%, 100% { box-shadow: 0 0 0 0 rgba(31, 78, 115, 0.5); }
             50% { box-shadow: 0 0 0 8px rgba(31, 78, 115, 0); }
+        }
+
+        /* Etiqueta "Escucha en inglés" */
+        .listen-hint {
+            font-size: 0.8rem;
+            color: #6d8aa0;
+            font-style: italic;
+            margin-left: 0.2rem;
         }
 
         /* Línea de escritura */
@@ -392,7 +399,7 @@
 <body>
 <div class="container">
     <h1>🇬🇧 Aprende Inglés Básico</h1>
-    <div class="subtitle">Lección 1 · 12 vocabularios · 12 frases con audio</div>
+    <div class="subtitle">Lección 1 · 12 vocabularios · Escucha en inglés y escribe en inglés</div>
 
     <!-- Sección de vocabulario -->
     <div class="vocab-section">
@@ -402,14 +409,14 @@
 
     <!-- Sección de frases -->
     <div class="sentences-section">
-        <h2>Escucha y escribe las frases en inglés</h2>
+        <h2>Escucha en inglés y escribe la frase</h2>
         <div id="sentencesContainer"></div>
         
         <div class="buttons-area">
             <button class="reset-btn" id="resetAllBtn">⟲ Reiniciar</button>
             <a href="leccion2.html" class="next-btn">Siguiente Lección →</a>
         </div>
-        <div class="note">💡 Presiona 🔊 para escuchar la frase, luego escríbela en el renglón.</div>
+        <div class="note">💡 La frase está en español. Presiona 🔊 para escucharla en inglés y escríbela en el renglón.</div>
     </div>
 </div>
 
@@ -419,32 +426,29 @@
 
     function loadVoices() {
         const voices = window.speechSynthesis.getVoices();
-        // Buscar una voz en inglés (preferir en-US o en-GB)
         englishVoice = voices.find(v => v.lang === 'en-US' && v.name.includes('Google'))
                     || voices.find(v => v.lang === 'en-US')
                     || voices.find(v => v.lang.startsWith('en-GB'))
                     || voices.find(v => v.lang.startsWith('en'));
     }
 
-    // Cargar voces (puede tardar en algunos navegadores)
     if (typeof speechSynthesis !== 'undefined') {
         loadVoices();
         speechSynthesis.onvoiceschanged = loadVoices;
     }
 
-    // Función para hablar
+    // Función para hablar en inglés
     function speak(text, buttonElement) {
         if (!('speechSynthesis' in window)) {
             alert('Tu navegador no soporta la síntesis de voz.');
             return;
         }
 
-        // Detener cualquier audio previo
         speechSynthesis.cancel();
 
         const utterance = new SpeechSynthesisUtterance(text);
         utterance.lang = 'en-US';
-        utterance.rate = 0.85;   // un poco más lento para aprender
+        utterance.rate = 0.85;
         utterance.pitch = 1;
         utterance.volume = 1;
 
@@ -452,7 +456,6 @@
             utterance.voice = englishVoice;
         }
 
-        // Animación del botón
         if (buttonElement) {
             buttonElement.classList.add('playing');
             utterance.onend = () => buttonElement.classList.remove('playing');
@@ -480,6 +483,23 @@
     });
 
     // ====== FRASES ======
+    // Frase en español (lo que ve el usuario)
+    const spanishSentences = [
+        "Nosotros aprendemos inglés",
+        "Él puede comer",
+        "Él mira",
+        "Yo trabajo",
+        "Erique escribe",
+        "Ellos hablan",
+        "Nosotros oímos",
+        "Pedro y Pablo hablan",
+        "Tú lees",
+        "Ella trabaja",
+        "Nosotros firmamos",
+        "Ellos aprenden"
+    ];
+
+    // Respuesta correcta en inglés (lo que el usuario debe escribir)
     const correctAnswers = [
         "we learn english",
         "he can eat",
@@ -495,20 +515,8 @@
         "they learn"
     ];
 
-    const displayedSentences = [
-        "we learn english",
-        "he can eat",
-        "he looks",
-        "i work",
-        "erique writes",
-        "they talk",
-        "we hear",
-        "pedro and pablo talk",
-        "you read",
-        "she works",
-        "we sign",
-        "they learn"
-    ];
+    // Texto que se reproduce en audio (la frase en inglés)
+    const audioPhrases = correctAnswers;
 
     const normalizedCorrect = correctAnswers.map(ans => ans.toLowerCase().trim());
 
@@ -521,12 +529,12 @@
 
     function renderSentences() {
         container.innerHTML = '';
-        displayedSentences.forEach((sentence, index) => {
+        spanishSentences.forEach((spanishSentence, index) => {
             const block = document.createElement('div');
             block.className = 'sentence-block';
             block.dataset.index = index;
 
-            // Línea de la pista: número + frase + botón de audio
+            // Línea de la pista: número + frase en español + botón de audio en inglés
             const promptLine = document.createElement('div');
             promptLine.className = 'sentence-prompt-line';
 
@@ -536,17 +544,22 @@
 
             const promptSpan = document.createElement('span');
             promptSpan.className = 'sentence-prompt';
-            promptSpan.textContent = sentence;
+            promptSpan.textContent = spanishSentence;
 
             const audioBtn = document.createElement('button');
             audioBtn.className = 'audio-btn';
             audioBtn.innerHTML = '🔊';
             audioBtn.title = 'Escuchar en inglés';
-            audioBtn.addEventListener('click', () => speak(sentence, audioBtn));
+            audioBtn.addEventListener('click', () => speak(audioPhrases[index], audioBtn));
+
+            const listenHint = document.createElement('span');
+            listenHint.className = 'listen-hint';
+            listenHint.textContent = '(escucha en inglés)';
 
             promptLine.appendChild(numSpan);
             promptLine.appendChild(promptSpan);
             promptLine.appendChild(audioBtn);
+            promptLine.appendChild(listenHint);
 
             // Línea de escritura
             const writeLine = document.createElement('div');
@@ -554,7 +567,7 @@
 
             const input = document.createElement('input');
             input.type = 'text';
-            input.placeholder = 'escribe aquí...';
+            input.placeholder = 'escribe en inglés...';
             input.id = `input-${index}`;
             input.setAttribute('autocomplete', 'off');
             input.setAttribute('spellcheck', 'false');
@@ -622,7 +635,7 @@
     }
 
     function resetAll() {
-        displayedSentences.forEach((_, index) => {
+        spanishSentences.forEach((_, index) => {
             const input = document.getElementById(`input-${index}`);
             const feedback = document.getElementById(`feedback-${index}`);
             if (input) {
