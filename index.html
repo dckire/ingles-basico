@@ -86,6 +86,10 @@
             box-shadow: 0 2px 6px rgba(0, 0, 0, 0.02);
             transition: 0.2s;
             font-family: 'Courier New', monospace;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
         }
 
         .vocab-item:hover {
@@ -93,39 +97,24 @@
             border-color: #6fa3c7;
         }
 
-        /* ====== SECCIÓN DE FRASES COMO HOJA ====== */
+        .vocab-item .speaker-icon {
+            font-size: 0.9rem;
+            opacity: 0.6;
+            transition: 0.2s;
+        }
+
+        .vocab-item:hover .speaker-icon {
+            opacity: 1;
+        }
+
+        /* ====== SECCIÓN DE FRASES ====== */
         .sentences-section {
-            background: #fffdf5;
-            border-radius: 1rem;
-            padding: 2rem 2.5rem 2rem 4rem;
-            box-shadow: 0 10px 25px rgba(0, 30, 50, 0.12);
-            border: 1px solid #e8dcc0;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .sentences-section::before {
-            content: "";
-            position: absolute;
-            top: 0;
-            bottom: 0;
-            left: 2.8rem;
-            width: 2px;
-            background: #f3a6a6;
-            z-index: 1;
-        }
-
-        .sentences-section::after {
-            content: "";
-            position: absolute;
-            top: 20px;
-            bottom: 20px;
-            left: 0.8rem;
-            width: 14px;
-            background-image: radial-gradient(circle, #cbd5e0 6px, transparent 7px);
-            background-size: 14px 60px;
-            background-repeat: repeat-y;
-            z-index: 1;
+            background: #ffffffdd;
+            backdrop-filter: blur(8px);
+            border-radius: 2rem;
+            padding: 2rem 2.5rem;
+            box-shadow: 0 10px 25px rgba(0, 30, 50, 0.1);
+            border: 1px solid #ffffff;
         }
 
         .sentences-section h2 {
@@ -135,8 +124,6 @@
             display: flex;
             align-items: center;
             gap: 0.5rem;
-            position: relative;
-            z-index: 2;
         }
 
         .sentences-section h2::before {
@@ -144,19 +131,22 @@
             font-size: 1.8rem;
         }
 
-        /* Cada bloque de frase: pista arriba, renglón abajo */
         .sentence-block {
-            position: relative;
-            z-index: 2;
             margin-bottom: 1.6rem;
-            padding-left: 0.2rem;
+            padding-bottom: 1.2rem;
+            border-bottom: 1px solid #dbe7f0;
+        }
+
+        .sentence-block:last-child {
+            border-bottom: none;
         }
 
         .sentence-prompt-line {
             display: flex;
             align-items: center;
             gap: 0.7rem;
-            margin-bottom: 0.4rem;
+            margin-bottom: 0.5rem;
+            flex-wrap: wrap;
         }
 
         .sentence-number {
@@ -181,7 +171,48 @@
             font-family: 'Courier New', monospace;
         }
 
-        /* Línea de escritura (renglón) debajo de la frase */
+        /* Botón de audio */
+        .audio-btn {
+            background: #e3effa;
+            border: 2px solid #a8c4d9;
+            color: #1f4e73;
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.05rem;
+            transition: 0.2s;
+            flex-shrink: 0;
+            padding: 0;
+        }
+
+        .audio-btn:hover {
+            background: #1f4e73;
+            color: white;
+            border-color: #1f4e73;
+            transform: scale(1.08);
+        }
+
+        .audio-btn:active {
+            transform: scale(0.95);
+        }
+
+        .audio-btn.playing {
+            background: #1f4e73;
+            color: white;
+            border-color: #1f4e73;
+            animation: pulse 1s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { box-shadow: 0 0 0 0 rgba(31, 78, 115, 0.5); }
+            50% { box-shadow: 0 0 0 8px rgba(31, 78, 115, 0); }
+        }
+
+        /* Línea de escritura */
         .write-line {
             display: flex;
             align-items: center;
@@ -193,9 +224,9 @@
         .write-line input {
             flex: 1;
             min-width: 200px;
-            padding: 0.4rem 0.3rem;
+            padding: 0.5rem 0.2rem;
             border: none;
-            border-bottom: 2px solid #b9d2e6;
+            border-bottom: 2px solid #a8c4d9;
             background: transparent;
             font-size: 1.05rem;
             font-family: 'Courier New', monospace;
@@ -226,13 +257,14 @@
             border: none;
             color: white;
             font-weight: 600;
-            padding: 0.5rem 1.1rem;
+            padding: 0.6rem 1.3rem;
             border-radius: 30px;
-            font-size: 0.85rem;
+            font-size: 0.9rem;
             cursor: pointer;
             transition: 0.15s;
             white-space: nowrap;
             flex-shrink: 0;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
         }
 
         .check-btn:hover {
@@ -271,14 +303,12 @@
             justify-content: space-between;
             align-items: center;
             margin-top: 2rem;
-            position: relative;
-            z-index: 2;
             flex-wrap: wrap;
             gap: 1rem;
         }
 
         .reset-btn {
-            background: #fffdf5;
+            background: #ffffff;
             border: 2px solid #b0c9db;
             color: #1f4e73;
             font-weight: 600;
@@ -309,7 +339,6 @@
             display: inline-flex;
             align-items: center;
             gap: 0.5rem;
-            border: none;
         }
 
         .next-btn:hover {
@@ -328,8 +357,6 @@
             font-size: 0.9rem;
             color: #436684;
             font-style: italic;
-            position: relative;
-            z-index: 2;
         }
 
         @media (max-width: 700px) {
@@ -337,7 +364,7 @@
                 font-size: 1.8rem;
             }
             .sentences-section {
-                padding: 1.5rem 1.2rem 1.5rem 3rem;
+                padding: 1.5rem 1.2rem;
             }
             .write-line {
                 padding-left: 0;
@@ -365,49 +392,94 @@
 <body>
 <div class="container">
     <h1>🇬🇧 Aprende Inglés Básico</h1>
-    <div class="subtitle">Lección 1 · 12 vocabularios · 12 frases para practicar</div>
+    <div class="subtitle">Lección 1 · 12 vocabularios · 12 frases con audio</div>
 
     <!-- Sección de vocabulario -->
     <div class="vocab-section">
-        <h2>Vocabulario</h2>
-        <div class="vocab-grid">
-            <span class="vocab-item">I</span>
-            <span class="vocab-item">you</span>
-            <span class="vocab-item">he</span>
-            <span class="vocab-item">she</span>
-            <span class="vocab-item">it</span>
-            <span class="vocab-item">we</span>
-            <span class="vocab-item">you</span>
-            <span class="vocab-item">they</span>
-            <span class="vocab-item">and</span>
-            <span class="vocab-item">english</span>
-            <span class="vocab-item">to live</span>
-            <span class="vocab-item">to talk</span>
-            <span class="vocab-item">to work</span>
-            <span class="vocab-item">to eat</span>
-            <span class="vocab-item">to look</span>
-            <span class="vocab-item">to write</span>
-            <span class="vocab-item">to sign</span>
-            <span class="vocab-item">to hear</span>
-            <span class="vocab-item">to read</span>
-            <span class="vocab-item">to learn</span>
-        </div>
+        <h2>Vocabulario (clic para escuchar)</h2>
+        <div class="vocab-grid" id="vocabGrid"></div>
     </div>
 
-    <!-- Sección de frases (hoja de cuaderno) -->
+    <!-- Sección de frases -->
     <div class="sentences-section">
-        <h2>Escribe las frases en inglés</h2>
+        <h2>Escucha y escribe las frases en inglés</h2>
         <div id="sentencesContainer"></div>
         
         <div class="buttons-area">
             <button class="reset-btn" id="resetAllBtn">⟲ Reiniciar</button>
             <a href="leccion2.html" class="next-btn">Siguiente Lección →</a>
         </div>
-        <div class="note">💡 La frase está arriba y el renglón para escribir abajo.</div>
+        <div class="note">💡 Presiona 🔊 para escuchar la frase, luego escríbela en el renglón.</div>
     </div>
 </div>
 
 <script>
+    // ====== VOZ EN INGLÉS ======
+    let englishVoice = null;
+
+    function loadVoices() {
+        const voices = window.speechSynthesis.getVoices();
+        // Buscar una voz en inglés (preferir en-US o en-GB)
+        englishVoice = voices.find(v => v.lang === 'en-US' && v.name.includes('Google'))
+                    || voices.find(v => v.lang === 'en-US')
+                    || voices.find(v => v.lang.startsWith('en-GB'))
+                    || voices.find(v => v.lang.startsWith('en'));
+    }
+
+    // Cargar voces (puede tardar en algunos navegadores)
+    if (typeof speechSynthesis !== 'undefined') {
+        loadVoices();
+        speechSynthesis.onvoiceschanged = loadVoices;
+    }
+
+    // Función para hablar
+    function speak(text, buttonElement) {
+        if (!('speechSynthesis' in window)) {
+            alert('Tu navegador no soporta la síntesis de voz.');
+            return;
+        }
+
+        // Detener cualquier audio previo
+        speechSynthesis.cancel();
+
+        const utterance = new SpeechSynthesisUtterance(text);
+        utterance.lang = 'en-US';
+        utterance.rate = 0.85;   // un poco más lento para aprender
+        utterance.pitch = 1;
+        utterance.volume = 1;
+
+        if (englishVoice) {
+            utterance.voice = englishVoice;
+        }
+
+        // Animación del botón
+        if (buttonElement) {
+            buttonElement.classList.add('playing');
+            utterance.onend = () => buttonElement.classList.remove('playing');
+            utterance.onerror = () => buttonElement.classList.remove('playing');
+        }
+
+        speechSynthesis.speak(utterance);
+    }
+
+    // ====== VOCABULARIO ======
+    const vocabulary = [
+        "I", "you", "he", "she", "it", "we", "you", "they",
+        "and", "english", "to live", "to talk", "to work", "to eat",
+        "to look", "to write", "to sign", "to hear", "to read", "to learn"
+    ];
+
+    const vocabGrid = document.getElementById('vocabGrid');
+    vocabulary.forEach(word => {
+        const item = document.createElement('span');
+        item.className = 'vocab-item';
+        item.innerHTML = `${word} <span class="speaker-icon">🔊</span>`;
+        item.title = 'Clic para escuchar';
+        item.addEventListener('click', () => speak(word, item));
+        vocabGrid.appendChild(item);
+    });
+
+    // ====== FRASES ======
     const correctAnswers = [
         "we learn english",
         "he can eat",
@@ -425,16 +497,16 @@
 
     const displayedSentences = [
         "we learn english",
-        "healen eat",
+        "he can eat",
         "he looks",
-        "i works",
-        "erique write",
-        "they talks",
-        "we heart",
+        "i work",
+        "erique writes",
+        "they talk",
+        "we hear",
         "pedro and pablo talk",
         "you read",
         "she works",
-        "we signe",
+        "we sign",
         "they learn"
     ];
 
@@ -454,6 +526,7 @@
             block.className = 'sentence-block';
             block.dataset.index = index;
 
+            // Línea de la pista: número + frase + botón de audio
             const promptLine = document.createElement('div');
             promptLine.className = 'sentence-prompt-line';
 
@@ -465,9 +538,17 @@
             promptSpan.className = 'sentence-prompt';
             promptSpan.textContent = sentence;
 
+            const audioBtn = document.createElement('button');
+            audioBtn.className = 'audio-btn';
+            audioBtn.innerHTML = '🔊';
+            audioBtn.title = 'Escuchar en inglés';
+            audioBtn.addEventListener('click', () => speak(sentence, audioBtn));
+
             promptLine.appendChild(numSpan);
             promptLine.appendChild(promptSpan);
+            promptLine.appendChild(audioBtn);
 
+            // Línea de escritura
             const writeLine = document.createElement('div');
             writeLine.className = 'write-line';
 
