@@ -186,7 +186,7 @@
             display: flex;
             align-items: center;
             gap: 0.8rem;
-            padding-left: 36px; /* alinea con el texto de la pista */
+            padding-left: 36px;
             flex-wrap: wrap;
         }
 
@@ -195,7 +195,7 @@
             min-width: 200px;
             padding: 0.4rem 0.3rem;
             border: none;
-            border-bottom: 2px solid #b9d2e6; /* línea azul del renglón */
+            border-bottom: 2px solid #b9d2e6;
             background: transparent;
             font-size: 1.05rem;
             font-family: 'Courier New', monospace;
@@ -265,12 +265,16 @@
             color: #6d7e8b;
         }
 
-        .reset-area {
+        /* ====== BOTONES INFERIORES ====== */
+        .buttons-area {
             display: flex;
-            justify-content: center;
+            justify-content: space-between;
+            align-items: center;
             margin-top: 2rem;
             position: relative;
             z-index: 2;
+            flex-wrap: wrap;
+            gap: 1rem;
         }
 
         .reset-btn {
@@ -278,7 +282,7 @@
             border: 2px solid #b0c9db;
             color: #1f4e73;
             font-weight: 600;
-            padding: 0.8rem 2rem;
+            padding: 0.8rem 1.8rem;
             border-radius: 40px;
             font-size: 1rem;
             cursor: pointer;
@@ -289,6 +293,33 @@
         .reset-btn:hover {
             background: #e3effa;
             border-color: #1f4e73;
+        }
+
+        .next-btn {
+            background: #1f4e73;
+            color: white;
+            font-weight: 600;
+            padding: 0.85rem 2rem;
+            border-radius: 40px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: 0.2s;
+            box-shadow: 0 6px 15px rgba(31, 78, 115, 0.3);
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            border: none;
+        }
+
+        .next-btn:hover {
+            background: #0e3552;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(31, 78, 115, 0.4);
+        }
+
+        .next-btn:active {
+            transform: translateY(0);
         }
 
         .note {
@@ -320,13 +351,21 @@
             .vocab-section {
                 padding: 1.3rem;
             }
+            .buttons-area {
+                flex-direction: column;
+                align-items: stretch;
+            }
+            .reset-btn, .next-btn {
+                justify-content: center;
+                text-align: center;
+            }
         }
     </style>
 </head>
 <body>
 <div class="container">
     <h1>🇬🇧 Aprende Inglés Básico</h1>
-    <div class="subtitle">12 vocabularios · 12 frases para practicar</div>
+    <div class="subtitle">Lección 1 · 12 vocabularios · 12 frases para practicar</div>
 
     <!-- Sección de vocabulario -->
     <div class="vocab-section">
@@ -360,8 +399,9 @@
         <h2>Escribe las frases en inglés</h2>
         <div id="sentencesContainer"></div>
         
-        <div class="reset-area">
-            <button class="reset-btn" id="resetAllBtn">⟲ Reiniciar todas las respuestas</button>
+        <div class="buttons-area">
+            <button class="reset-btn" id="resetAllBtn">⟲ Reiniciar</button>
+            <a href="leccion2.html" class="next-btn">Siguiente Lección →</a>
         </div>
         <div class="note">💡 La frase está arriba y el renglón para escribir abajo.</div>
     </div>
@@ -410,12 +450,10 @@
     function renderSentences() {
         container.innerHTML = '';
         displayedSentences.forEach((sentence, index) => {
-            // Bloque completo
             const block = document.createElement('div');
             block.className = 'sentence-block';
             block.dataset.index = index;
 
-            // Línea superior: número + frase (pista)
             const promptLine = document.createElement('div');
             promptLine.className = 'sentence-prompt-line';
 
@@ -430,7 +468,6 @@
             promptLine.appendChild(numSpan);
             promptLine.appendChild(promptSpan);
 
-            // Línea inferior: renglón para escribir
             const writeLine = document.createElement('div');
             writeLine.className = 'write-line';
 
